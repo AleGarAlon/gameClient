@@ -34,22 +34,55 @@ function Explore () {
         const randomDex = parseInt(Math.random() * 100);
         const randomAgi = parseInt(Math.random() * 100);
         const randomFate = parseInt(Math.random() * 100);
-        
+
+
+        //player turn
+        //Random C.dex vs random E.agi to deternine if the atack land
         if (randomDex + character.attributes.dexterity > randomAgi + enemy.attributes.agility) {
+            //if land, determine if the fate attribute triggers 
+            //fate triggers = ignore armor
             if (character.attributes.fate>= randomFate) {
-                const dmg = (10 + character.attributes.strength) * 2;
-                enemy.attributes.constitution - dmg;
-                setCombat(`${enemy.name} recived a critical strike of ${dmg}`)
+                //determine the damage, playerdamage + str atribute
+                const dmg = (character.damage + character.attributes.strength);
+                enemy.health - dmg;
+                setCombat(`${enemy.name} recived a obliterating strike of ${dmg}`)
             }
+            //non fate attack
             else {
-                const dmg = 10 + character.attributes.strength
-                enemy.attributes.constitution - dmg;
+                const dmg = (character.damage + character.attributes.strength) - enemy.attributes.armor
+                enemy.health - dmg;
                 setCombat(`${enemy.name} recived a strike of ${dmg}`)
             }
         }
         else {
             setCombat(`${character.name}, atack failed`)
         }
+
+        //enemy turn
+        //Random E.dex vs random C.agi to deternine if the atack land
+        if (randomDex + enemy .attributes.dexterity > randomAgi + character.attributes.agility) {
+            //if land, determine if the fate attribute triggers 
+            //fate triggers = ignore armor
+            if (enemy.attributes.fate>= randomFate) {
+                //determine the damage, enemydamage + str atribute
+                const dmg = (enemy.damage + enemy.attributes.strength);
+                character.health - dmg;
+                setCombat(`${character.name} recived a obliterating strike of ${dmg}`)
+            }
+            //non fate attack
+            else {
+                const dmg = (enemy.damage + enemy.attributes.strength) - character.attributes.armor
+                character.health - dmg;
+                setCombat(`${character.name} recived a strike of ${dmg}`)
+            }
+        }// if the attack failed on the dex vs agi
+        else {
+            setCombat(`${character.name}, atack failed`)
+        }
+
+       
+
+
     }
 
     useEffect(()=> {
