@@ -9,7 +9,8 @@ function Explore () {
     const {user} = useContext(AuthContext)
     const character = user.character
     const {location} = useParams()
-    const [combat, setCombat] = useState("")
+    const [combat1, setCombat1] = useState("")
+    const [combat2, setCombat2] = useState("")
     // console.log("Your character",character)
     // console.log("Your enemy", enemy)
     // console.log("you location", location)
@@ -22,7 +23,8 @@ function Explore () {
                 const data = response.data
                 // console.log("your info",data)
                 setEnemy(data)
-                setCombat("")
+                setCombat1("")
+                setCombat2("")
             }
         } catch (error) {
             console.log(error)
@@ -43,19 +45,19 @@ function Explore () {
             //fate triggers = ignore armor
             if (character.attributes.fate>= randomFate) {
                 //determine the damage, playerdamage + str atribute
-                const dmg = (character.damage + character.attributes.strength);
+                const dmg = (character.damage[1] + character.attributes.strength);
                 enemy.health - dmg;
-                setCombat(`${enemy.name} recived a obliterating strike of ${dmg}`)
+                setCombat1(`${enemy.name} recived a obliterating strike of ${dmg}`)
             }
             //non fate attack
             else {
-                const dmg = (character.damage + character.attributes.strength) - enemy.attributes.armor
+                const dmg = (character.damage[1] + character.attributes.strength) - enemy.attributes.armor
                 enemy.health - dmg;
-                setCombat(`${enemy.name} recived a strike of ${dmg}`)
+                setCombat1(`${enemy.name} recived a strike of ${dmg}`)
             }
         }
         else {
-            setCombat(`${character.name}, atack failed`)
+            setCombat1(`${character.name}, atack failed`)
         }
 
         //enemy turn
@@ -65,19 +67,19 @@ function Explore () {
             //fate triggers = ignore armor
             if (enemy.attributes.fate>= randomFate) {
                 //determine the damage, enemydamage + str atribute
-                const dmg = (enemy.damage + enemy.attributes.strength);
+                const dmg = (enemy.damage[1] + enemy.attributes.strength);
                 character.health - dmg;
-                setCombat(`${character.name} recived a obliterating strike of ${dmg}`)
+                setCombat2(`${character.name} recived a obliterating strike of ${dmg}`)
             }
             //non fate attack
             else {
-                const dmg = (enemy.damage + enemy.attributes.strength) - character.attributes.armor
+                const dmg = (enemy.damage[1] + enemy.attributes.strength) - character.attributes.armor
                 character.health - dmg;
-                setCombat(`${character.name} recived a strike of ${dmg}`)
+                setCombat2(`${character.name} recived a strike of ${dmg}`)
             }
         }// if the attack failed on the dex vs agi
         else {
-            setCombat(`${character.name}, atack failed`)
+            setCombat2(`${enemy.name}, atack failed`)
         }
 
        
@@ -103,7 +105,8 @@ function Explore () {
         <h1>Battle in the {location}</h1>
 
         <h3>Combat results</h3>
-            <h4>{combat}</h4>
+            <h4>{combat1}</h4>
+            <h4>{combat2}</h4>
             <Link to = "/main">Return to the village</Link>
         <h2>{`Your enemy is a ${enemy.name}`}</h2> 
             <img src={enemy.image} alt={`${enemy.name} image`} />
