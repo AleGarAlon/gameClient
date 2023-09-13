@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Startpage() {
+function StartPage() {
   return (
     <>
     <h1>GAME NAME</h1>
@@ -11,4 +11,4 @@ function Startpage() {
   )
 }
 
-export default Startpage
+export default StartPage

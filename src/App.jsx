@@ -7,17 +7,19 @@ import Explore from './pages/Explore'
 import Character from './pages/character'
 import Map from './pages/Map'
 import Navbar from './components/Navbar'
+import StartPage from './pages/Startpage'
 
 
 function App() {
   const location = useLocation(); 
-  const excludeNavbarRoutes = ["/login", "/signup"];
+  const excludeNavbarRoutes = ["/login", "/signup","/"];
   const shouldShowNavbar = !excludeNavbarRoutes.includes(location.pathname);
 
   return (
     <>
       {shouldShowNavbar && <Navbar />}
       <Routes>
+        <Route path="/" element={<StartPage/>}/>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<MainScreen />} />
