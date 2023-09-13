@@ -16,8 +16,9 @@ console.log("your current charater is" , user.character)
         <>
         
         <h1>{character.name}</h1>
+        <img src={character.image} alt={character.name} style={{width: "10rem"}}/>
 
-        <h4>inventory</h4>
+        <h4 >Inventory</h4>
     {character.inventory && character.inventory.length > 0 ? (
       character.inventory.map((item) => (
         <ul key={item._id}>
@@ -29,7 +30,7 @@ console.log("your current charater is" , user.character)
       <p>No items in inventory</p>
     )}
 
-    <h4>consumables</h4>
+    <h4>Consumables</h4>
     {character.consumables && character.consumables.length > 0 ? (
       character.consumables.map((consumable) => (
         <ul key={consumable._id}>

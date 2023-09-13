@@ -33,21 +33,24 @@ function Explore () {
 
     const figth = () => {
         const turn = Math.random()
-        const randomDex = parseInt(Math.random() * 100);
-        const randomAgi = parseInt(Math.random() * 100);
-        const randomFate = parseInt(Math.random() * 100);
+        const randomDex1 = parseInt(Math.random() * 100);
+        const randomAgi1 = parseInt(Math.random() * 100);
+        const randomFate1 = parseInt(Math.random() * 100);
+        const randomDex2 = parseInt(Math.random() * 100);
+        const randomAgi2 = parseInt(Math.random() * 100);
+        const randomFate2 = parseInt(Math.random() * 100);
 
 
         //player turn
         //Random C.dex vs random E.agi to deternine if the atack land
-        if (randomDex + character.attributes.dexterity > randomAgi + enemy.attributes.agility) {
+        if (randomDex1 + character.attributes.dexterity > randomAgi1 + enemy.attributes.agility) {
             //if land, determine if the fate attribute triggers 
             //fate triggers = ignore armor
-            if (character.attributes.fate>= randomFate) {
+            if (character.attributes.fate>= randomFate1) {
                 //determine the damage, playerdamage + str atribute
                 const dmg = (character.damage[1] + character.attributes.strength);
                 enemy.health - dmg;
-                setCombat1(`${enemy.name} recived a obliterating strike of ${dmg}`)
+                setCombat1(`${enemy.name} recived a piercing strike of ${dmg}`)
             }
             //non fate attack
             else {
@@ -62,14 +65,14 @@ function Explore () {
 
         //enemy turn
         //Random E.dex vs random C.agi to deternine if the atack land
-        if (randomDex + enemy .attributes.dexterity > randomAgi + character.attributes.agility) {
+        if (randomDex2 + enemy .attributes.dexterity > randomAgi2 + character.attributes.agility) {
             //if land, determine if the fate attribute triggers 
             //fate triggers = ignore armor
-            if (enemy.attributes.fate>= randomFate) {
+            if (enemy.attributes.fate>= randomFate2) {
                 //determine the damage, enemydamage + str atribute
                 const dmg = (enemy.damage[1] + enemy.attributes.strength);
                 character.health - dmg;
-                setCombat2(`${character.name} recived a obliterating strike of ${dmg}`)
+                setCombat2(`${character.name} recived a piercing strike of ${dmg}`)
             }
             //non fate attack
             else {
@@ -109,25 +112,25 @@ function Explore () {
             <h4>{combat2}</h4>
             <Link to = "/main">Return to the village</Link>
         <h2>{`Your enemy is a ${enemy.name}`}</h2> 
-            <img src={enemy.image} alt={`${enemy.name} image`} />
+            <img src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
             <ul>
                 <li>Strength: {enemy.attributes.strength}</li>
                 <li>Dexterity: {enemy.attributes.dexterity}</li>
                 <li>Agility: {enemy.attributes.agility}</li>
                 <li>Constitution: {enemy.attributes.constitution}</li>
                 <li>Fate: {enemy.attributes.fate}</li>
-                <li></li>
+                <li>Armor: {enemy.attributes.armor}</li>
             </ul>
 
             <h2>{character.name}</h2> 
-            <img src={character.image} alt={`${character.name} image`} />
+            <img src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
             <ul>
                 <li>Strength: {character.attributes.strength}</li>
                 <li>Dexterity: {character.attributes.dexterity}</li>
                 <li>Agility: {character.attributes.agility}</li>
                 <li>Constitution: {character.attributes.constitution}</li>
                 <li>Fate: {character.attributes.fate}</li>
-                <li></li>
+                <li>Armor: {character.attributes.armor}</li>
             </ul>
             
             
