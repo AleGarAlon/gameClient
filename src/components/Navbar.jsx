@@ -14,6 +14,7 @@ function Navbar() {
     <Link to="/shop">Shop</Link>
     <Link to="/train">Train</Link>
     <Link to="/pit">The pit</Link>
+    <Link to="/create">Create enemy form</Link>
     </div>
     <div className='navStats'>
         <p>Health {health}</p>

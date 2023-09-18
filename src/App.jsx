@@ -8,11 +8,12 @@ import Character from './pages/character'
 import Map from './pages/Map'
 import Navbar from './components/Navbar'
 import StartPage from './pages/Startpage'
+import CreateEnemy from './components/EnemyForm'
 
 
 function App() {
   const location = useLocation(); 
-  const excludeNavbarRoutes = ["/login", "/signup","/"];
+  const excludeNavbarRoutes = ["/login", "/signup","/","/create"];
   const shouldShowNavbar = !excludeNavbarRoutes.includes(location.pathname);
 
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/character" element={<Character />} />
         <Route path="/explore/:location" element={<Explore />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/create" element={<CreateEnemy />} />
       </Routes>
     </>
   );
