@@ -12,11 +12,13 @@ function Explore () {
     const [character, setCharacter] = useState("")
     const characterId = user.character._id
     const {location} = useParams()
-    const [combat1, setCombat1] = useState("")
-    const [combat2, setCombat2] = useState("")
+    const [combat1, setCombat1] = useState([])
+    const [combat2, setCombat2] = useState([])
     const [turn, setTurn] = useState("")
     const [victory, setVictory] = useState("")
     console.log(characterId)
+    
+    
 
 
     const getEnemy = async () => {
@@ -26,9 +28,8 @@ function Explore () {
                 const data = response.data
                 // console.log("your info",data)
                 setEnemy({...data})
-                setCombat1("")
-                setCombat2("")
-                setTurn("")
+                
+                
             }
         } catch (error) {
             console.log(error)
@@ -66,20 +67,31 @@ function Explore () {
                     //determine the damage, playerdamage + str atribute
                     const dmg = (character.damage + character.attributes.strength);
                     enemy.health - dmg;
-                    setCombat1(`${enemy.name} recived a piercing strike of ${dmg}`)
+                    let combat1Result = `${enemy.name} recived a piercing strike of ${dmg}` 
+                    console.log(combat1Result)
+                    setCombat1((prevCombat1) => [...prevCombat1, combat1Result])
+                    console.log("Your combat1 is", combat1)
                 }
                 //non fate attack
                 else {
                     const dmg = (character.damage + character.attributes.strength) - enemy.attributes.armor
-                    console.log("Enemy health pre atack", enemy.health)
+                    // console.log("Enemy health pre atack", enemy.health)
                     enemy.health -= dmg;
-                    console.log("Enemy health post atack", enemy.health)
-                    setCombat1(`${enemy.name} recived a strike of ${dmg}`)
+                    // console.log("Enemy health post atack", enemy.health)
+                    let combat1Result = `${enemy.name} recived a strike of ${dmg}` 
+                    console.log(combat1Result)
+                    setCombat1((prevCombat1) => [...prevCombat1, combat1Result])
+                    console.log("Your combat1 is", combat1)
                 }
             }
             else {
-                setCombat1(`${character.name}, atack failed`)
+                let combat1Result = `${character.name}, atack failed`
+                console.log(combat1Result)
+                setCombat1((prevCombat1) => [...prevCombat1, combat1Result])
+                console.log("Your combat1 is", combat1)
+                
             }
+            
         }
 
         const enemyTurn = ()=> {
@@ -94,11 +106,11 @@ function Explore () {
                 if (enemy.attributes.fate>= randomFate2) {
                     //determine the damage, enemydamage + str atribute
                     const dmg = (enemy.damage + enemy.attributes.strength);
-                    console.log("Character health pre attack", character.health)
+                    // console.log("Character health pre attack", character.health)
                     const newHealth = character.health - dmg;
                     character.health = newHealth
-                    console.log(newHealth)
-                    console.log("Character health post attack", character.health)
+                    // console.log(newHealth)
+                    // console.log("Character health post attack", character.health)
                     setUser({
                         ...user,
                         character: {
@@ -106,15 +118,19 @@ function Explore () {
                           health: newHealth,
                         },
                       });
-                    setCombat2(`${character.name} recived a piercing strike of ${dmg}`)
-                }
+                        let combat2Result = `${character.name} recived a piercing strike of ${dmg}`
+                        console.log(combat2Result)
+                        setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
+                        console.log("Your combat2 is", combat2)
+                    }  
                 //non fate attack
+
                 else {
                     const dmg = (enemy.damage + enemy.attributes.strength) - character.attributes.armor
                     const newHealth = character.health - dmg;
                     character.health = newHealth
-                    console.log(newHealth)
-                    console.log("Character health post attack", character.health)
+                    // console.log(newHealth)
+                    // console.log("Character health post attack", character.health)
                     setUser({
                         ...user,
                         character: {
@@ -122,12 +138,19 @@ function Explore () {
                           health: newHealth,
                         },
                       });
-                    setCombat2(`${character.name} recived a strike of ${dmg}`)
+                      let combat2Result =`${character.name} recived a strike of ${dmg}`
+                      console.log(combat2Result)
+                      setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
+                        console.log("Your combat2 is", combat2)
                 }
             }// if the attack failed on the dex vs agi
             else {
-                setCombat2(`${enemy.name}, atack failed`)
+                let combat2Result =`${enemy.name}, atack failed`
+                console.log(combat2Result)
+                setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
+                console.log("Your combat2 is", combat2)
             }
+            
         }
        
     
@@ -143,32 +166,36 @@ function Explore () {
     
     useEffect(() => {
         if (enemy && character) {
-            const turn = Math.random();
-            console.log(turn)
-            if (turn % 2 !== 0){
+            const whosTurn = Math.random();
+            
+            if (whosTurn % 2 !== 0){
                 setTurn(`${character.name} attack first`)
             while (character.health > 0 && enemy.health > 0) {
                 characterTurn();
+                
                 if (enemy.health <= 0) {
                     setVictory(`${character.name} wins`)
                     break
                 }
                 enemyTurn();
+                
                 if (character.health <= 0){
                     setVictory(`${enemy.name} wins`)
                     break
                 }
             }
             }
-            if(turn % 2 === 0) {
+            if(whosTurn % 2 === 0) {
                 setTurn(`${enemy.name} attack first`)
                 while (character.health > 0 && enemy.health > 0) {
                     enemyTurn();
+                    
                     if (character.health <= 0){
                         setVictory(`${enemy.name} wins`)
                         break
                     }
                     characterTurn();
+                    
                     if (enemy.health <= 0) {
                         setVictory(`${character.name} wins`)
                         break
@@ -180,15 +207,23 @@ function Explore () {
     }, [enemy]); 
     
 
-    return enemy && character ? (
+    return enemy && character  ? (
         <>
         <h1>Battle in the {location}</h1>
 
         <h3>Combat results</h3>
             <h3>{victory}</h3>
             <h4>{turn}</h4>
-            <h4>{combat1}</h4>
-            <h4>{combat2}</h4>
+            <h4>{combat1.map((combatLog, index) => {
+                return(
+                    <h4 key = {index}>{combatLog}</h4>
+                )
+            })}</h4>
+            <h4>{combat2.map((combatLog, index) => {
+                return(
+                    <h4 key = {index}>{combatLog}</h4>
+                )
+            })}</h4>
             <Link to = "/main">Return to the village</Link>
         <h2>{`Your enemy is a ${enemy.name}`}</h2> 
             <img src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
