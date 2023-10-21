@@ -17,7 +17,7 @@ function App() {
   const shouldShowNavbar = !excludeNavbarRoutes.includes(location.pathname);
 
   return (
-    <>
+    <div className='app'>
       {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<StartPage/>}/>
@@ -29,7 +29,7 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/create" element={<CreateEnemy />} />
       </Routes>
-    </>
+    </div>
   );
   
 }

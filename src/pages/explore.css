@@ -1,0 +1,12 @@
+.exploreCombatants {
+display: flex;
+justify-content:space-between
+}
+
+.exploreImg{
+    background-image: url("https://res.cloudinary.com/dvml0gelc/image/upload/v1697749132/game/UI%20elements/el_26_02_eauegf.png");
+    background-size: 100% 100%;
+    
+    
+    
+}

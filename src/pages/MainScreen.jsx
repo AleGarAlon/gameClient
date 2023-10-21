@@ -1,18 +1,38 @@
 
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { API_URL } from "../config/config.index";
 import { AuthContext } from "../context/Auth.context";
-import { useContext } from "react";
-import Navbar from "../components/Navbar";
+import { useContext, useEffect, useState } from "react";
+
+
 
 
 function MainScreen() {
 const {user} = useContext(AuthContext)
-const character = user.character
+const characterId = user.character._id
+const [character, setCharacter] = useState()
+
 console.log("your current charater is" , user.character)
 
+const getCharacter = async () => {
+  try {
+      const response = await axios.get(`${API_URL}/character/${characterId}`)       
+  if  (response.status === 200) {
+      const data = response.data;
+      console.log(data)
+      setCharacter(data)
+  }
+  } 
+  catch (error) {
+      console.log(error)
+  }
+}
 
+useEffect (() => {
+  getCharacter()
+},[])
 
-    return (
+    return character ? (
         <>
         
         <h1>{character.name}</h1>
@@ -42,6 +62,6 @@ console.log("your current charater is" , user.character)
       <p>No consumables available</p>
     )}
         </>
-    )
+    ) : <h2>Loading...</h2>
 }
 export default MainScreen;

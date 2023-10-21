@@ -3,12 +3,13 @@ import { useParams, Link} from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/Auth.context";
 import { API_URL } from "../config/config.index";
+import "./explore.css"
 
 
 
 function Explore () {
     const [enemy, setEnemy] = useState(null)
-    const {user, setUser} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
     const [character, setCharacter] = useState("")
     const characterId = user.character._id
     const {location} = useParams()
@@ -26,7 +27,6 @@ function Explore () {
             const response = await axios.get(`${API_URL}/explore/${location}`);
             if(response.status === 200) {
                 const data = response.data
-                // console.log("your info",data)
                 setEnemy({...data})
                 
                 
@@ -37,17 +37,24 @@ function Explore () {
     }
 
     const getCharacter = async () => {
-        
         try {
-            const response = await axios.get(`${API_URL}/character/${characterId}`)
-           
+            const response = await axios.get(`${API_URL}/character/${characterId}`)       
         if  (response.status === 200) {
             const data = response.data;
             console.log(data)
-            setCharacter(data)
+            setCharacter({...data})
         }
         } 
         catch (error) {
+            console.log(error)
+        }
+    }
+
+    const updateCharacter = async ()=> {
+        try {
+            console.log("your character inside the update is",character)
+             await axios.patch(`${API_URL}/character/${characterId}`, character)
+        } catch (error) {
             console.log(error)
         }
     }
@@ -108,16 +115,10 @@ function Explore () {
                     const dmg = (enemy.damage + enemy.attributes.strength);
                     // console.log("Character health pre attack", character.health)
                     const newHealth = character.health - dmg;
-                    character.health = newHealth
+                    
                     // console.log(newHealth)
                     // console.log("Character health post attack", character.health)
-                    setUser({
-                        ...user,
-                        character: {
-                          ...user.character,
-                          health: newHealth,
-                        },
-                      });
+                    setCharacter({...character, health: newHealth,});
                         let combat2Result = `${character.name} recived a piercing strike of ${dmg}`
                         console.log(combat2Result)
                         setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
@@ -131,13 +132,7 @@ function Explore () {
                     character.health = newHealth
                     // console.log(newHealth)
                     // console.log("Character health post attack", character.health)
-                    setUser({
-                        ...user,
-                        character: {
-                          ...user.character,
-                          health: newHealth,
-                        },
-                      });
+                    setCharacter({...character, health: newHealth,});
                       let combat2Result =`${character.name} recived a strike of ${dmg}`
                       console.log(combat2Result)
                       setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
@@ -159,8 +154,7 @@ function Explore () {
 
     useEffect(()=> {
         getEnemy();
-        getCharacter();
-        
+        getCharacter();     
     }, []) 
     
     
@@ -203,30 +197,35 @@ function Explore () {
                 }  
             }
         }
-
     }, [enemy]); 
+    
+    useEffect (()=>{
+        if(victory !== "")
+        updateCharacter()
+    },[victory])
     
 
     return enemy && character  ? (
         <>
         <h1>Battle in the {location}</h1>
 
-        <h3>Combat results</h3>
-            <h3>{victory}</h3>
-            <h4>{turn}</h4>
-            <h4>{combat1.map((combatLog, index) => {
-                return(
-                    <h4 key = {index}>{combatLog}</h4>
-                )
-            })}</h4>
-            <h4>{combat2.map((combatLog, index) => {
-                return(
-                    <h4 key = {index}>{combatLog}</h4>
-                )
-            })}</h4>
-            <Link to = "/main">Return to the village</Link>
-        <h2>{`Your enemy is a ${enemy.name}`}</h2> 
-            <img src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
+         
+        <div className="exploreCombatants">
+            <div className="exploreCharacter">
+            <h3>{character.name}</h3> 
+            <img className= "exploreImg" src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
+            <ul>
+                <li>Strength: {character.attributes.strength}</li>
+                <li>Dexterity: {character.attributes.dexterity}</li>
+                <li>Agility: {character.attributes.agility}</li>
+                <li>Constitution: {character.attributes.constitution}</li>
+                <li>Fate: {character.attributes.fate}</li>
+                <li>Armor: {character.attributes.armor}</li>
+            </ul>
+            </div>
+            <div className="exploreEnemy">
+            <h3>{`${enemy.name}`}</h3>
+            <img className= "exploreImg" src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
             <ul>
                 
                 <li>Strength: {enemy.attributes.strength}</li>
@@ -236,17 +235,24 @@ function Explore () {
                 <li>Fate: {enemy.attributes.fate}</li>
                 <li>Armor: {enemy.attributes.armor}</li>
             </ul>
+            </div>
+        </div>
+        <h3>Combat results</h3>
+            <h3>{victory}</h3>
+            <h4>{turn}</h4>
 
-            <h2>{character.name}</h2> 
-            <img src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
-            <ul>
-                <li>Strength: {character.attributes.strength}</li>
-                <li>Dexterity: {character.attributes.dexterity}</li>
-                <li>Agility: {character.attributes.agility}</li>
-                <li>Constitution: {character.attributes.constitution}</li>
-                <li>Fate: {character.attributes.fate}</li>
-                <li>Armor: {character.attributes.armor}</li>
-            </ul>
+            <h4 className="exploreAttacker">{combat1.map((combatLog, index) => {
+                return(
+                    <p key = {index}>{combatLog}</p>
+                )
+            })}</h4>
+
+            <h4 className="exploreDefender">{combat2.map((combatLog, index) => {
+                return(
+                    <p key = {index}>{combatLog}</p>
+                )
+            })}</h4>
+            <Link to = "/main">Return to the village</Link>
             
             
         </>
