@@ -1,26 +1,45 @@
+import axios from "axios";
+import { API_URL } from "../config/config.index";
+import { AuthContext } from "../context/Auth.context";
+import { useContext, useEffect, useState } from "react";
 
-import { AuthContext } from '../context/Auth.context'
-import { useContext } from 'react'
 
 function Character() {
-    const {user} = useContext(AuthContext)
-    const character = user.character
+  const {user} = useContext(AuthContext)
+  const characterId = user.character._id
+  const [character, setCharacter] = useState()
 
-  return (
-    <div>
-        <h2>character profile</h2>
+  return user.character ? (
+    <>
+    
+    <h1>{user.character.name}</h1>
+    <img src={user.character.image} alt={user.character.name} style={{width: "10rem"}}/>
 
-        <img src={character.image} alt={Character.name} />
+    <h4 >Inventory</h4>
+{user.character.inventory && user.character.inventory.length > 0 ? (
+  user.character.inventory.map((item) => (
+    <ul key={item._id}>
+      <li>{item.name}</li>
+      <li>{item.image}</li>
+    </ul>
+  ))
+) : (
+  <p>No items in inventory</p>
+)}
 
-        <ul> Items
-        {character.items.map((item) => (
-    <li key={item._id}>{item}</li>
-  ))}
-
-        </ul>
-        
-    </div>
-  )
+<h4>Consumables</h4>
+{user.character.consumables && user.character.consumables.length > 0 ? (
+  user.character.consumables.map((consumable) => (
+    <ul key={consumable._id}>
+      <li>{consumable.name}</li>
+      <li>{consumable.image}</li>
+    </ul>
+  ))
+) : (
+  <p>No consumables available</p>
+)}
+    </>
+) : <h2>Loading...</h2>
 }
 
 export default Character

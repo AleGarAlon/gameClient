@@ -21,7 +21,7 @@ function Login() {
             console.log("There is the Login response", data)
             localStorage.setItem("authToken", data.token)
             await authenticateUser();
-            nav("/main")
+            nav("/character")
         } catch (error) {
             console.log(error)
         }

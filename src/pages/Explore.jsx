@@ -50,14 +50,14 @@ function Explore () {
         }
     }
 
-    const updateCharacter = async ()=> {
-        try {
-            console.log("your character inside the update is",character)
-             await axios.patch(`${API_URL}/character/${characterId}`, character)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const updateCharacter = async ()=> {
+    //     try {
+    //         console.log("your character inside the update is",character)
+    //          await axios.patch(`${API_URL}/character/${characterId}`, character)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     
         const characterTurn = () => {
@@ -73,7 +73,11 @@ function Explore () {
                 if (character.attributes.fate>= randomFate1) {
                     //determine the damage, playerdamage + str atribute
                     const dmg = (character.damage + character.attributes.strength);
-                    enemy.health - dmg;
+                    setEnemy((prevEnemy) => ({
+                        ...prevEnemy,
+                        health: prevEnemy.health - dmg
+                    }))
+                    console.log("Enemy health post atack", enemy.health)
                     let combat1Result = `${enemy.name} recived a piercing strike of ${dmg}` 
                     console.log(combat1Result)
                     setCombat1((prevCombat1) => [...prevCombat1, combat1Result])
@@ -83,8 +87,11 @@ function Explore () {
                 else {
                     const dmg = (character.damage + character.attributes.strength) - enemy.attributes.armor
                     // console.log("Enemy health pre atack", enemy.health)
-                    enemy.health -= dmg;
-                    // console.log("Enemy health post atack", enemy.health)
+                    setEnemy((prevEnemy) => ({
+                        ...prevEnemy,
+                        health: prevEnemy.health - dmg
+                    }))
+                    console.log("Enemy health post atack", enemy.health)
                     let combat1Result = `${enemy.name} recived a strike of ${dmg}` 
                     console.log(combat1Result)
                     setCombat1((prevCombat1) => [...prevCombat1, combat1Result])
@@ -114,11 +121,12 @@ function Explore () {
                     //determine the damage, enemydamage + str atribute
                     const dmg = (enemy.damage + enemy.attributes.strength);
                     // console.log("Character health pre attack", character.health)
-                    const newHealth = character.health - dmg;
-                    
                     // console.log(newHealth)
-                    // console.log("Character health post attack", character.health)
-                    setCharacter({...character, health: newHealth,});
+                    console.log("Character health post attack", character.health)
+                    setCharacter((prevCharacter) => ({
+                        ...prevCharacter,
+                        health: prevCharacter.health - dmg
+                    }))
                         let combat2Result = `${character.name} recived a piercing strike of ${dmg}`
                         console.log(combat2Result)
                         setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
@@ -128,14 +136,14 @@ function Explore () {
 
                 else {
                     const dmg = (enemy.damage + enemy.attributes.strength) - character.attributes.armor
-                    const newHealth = character.health - dmg;
-                    character.health = newHealth
-                    // console.log(newHealth)
-                    // console.log("Character health post attack", character.health)
-                    setCharacter({...character, health: newHealth,});
-                      let combat2Result =`${character.name} recived a strike of ${dmg}`
-                      console.log(combat2Result)
-                      setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
+                    setCharacter((prevCharacter) => ({
+                        ...prevCharacter,
+                        health: prevCharacter.health - dmg
+                    }))
+                        console.log("Character health post attack", character.health)
+                    let combat2Result =`${character.name} recived a strike of ${dmg}`
+                    console.log(combat2Result)
+                    setCombat2((prevCombat2) => [...prevCombat2, combat2Result])
                         console.log("Your combat2 is", combat2)
                 }
             }// if the attack failed on the dex vs agi
@@ -197,12 +205,12 @@ function Explore () {
                 }  
             }
         }
-    }, [enemy]); 
+    }, []); 
     
-    useEffect (()=>{
-        if(victory !== "")
-        updateCharacter()
-    },[victory])
+    // useEffect (()=>{
+    //     if(victory !== "")
+    //     updateCharacter()
+    // },[victory])
     
 
     return enemy && character  ? (
@@ -221,6 +229,7 @@ function Explore () {
                 <li>Constitution: {character.attributes.constitution}</li>
                 <li>Fate: {character.attributes.fate}</li>
                 <li>Armor: {character.attributes.armor}</li>
+                <li>Health: {character.health}</li>
             </ul>
             </div>
             <div className="exploreEnemy">
@@ -234,6 +243,7 @@ function Explore () {
                 <li>Constitution: {enemy.attributes.constitution}</li>
                 <li>Fate: {enemy.attributes.fate}</li>
                 <li>Armor: {enemy.attributes.armor}</li>
+                <li>Health: {enemy.health}</li>
             </ul>
             </div>
         </div>

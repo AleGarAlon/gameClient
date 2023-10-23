@@ -45,6 +45,15 @@ const AuthContextWrapper = ({ children }) => {
     localStorage.removeItem("authToken");
     setIsLoggedIn(false);
   };
+
+  const updateUserDB = async (user)=> {
+        try {
+            
+             await axios.patch(`${API_URL}/character/${user._id}`, user)
+        } catch (error) {
+            console.log(error)
+        }
+    }
   return (
     <AuthContext.Provider
       value={{
@@ -55,6 +64,7 @@ const AuthContextWrapper = ({ children }) => {
         isLoggedIn,
         logout,
         setUser,
+        updateUserDB,
       }}
     >
       {children}

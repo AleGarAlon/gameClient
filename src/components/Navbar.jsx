@@ -8,31 +8,11 @@ import { API_URL } from "../config/config.index";
 
 function Navbar() {
     const {user} = useContext(AuthContext)
-    const [character, setCharacter] = useState("")
-    const characterId = user.character._id
-    const health = character.health
-
-    const getCharacter = async () => {
-      try {
-          const response = await axios.get(`${API_URL}/character/${characterId}`)       
-      if  (response.status === 200) {
-          const data = response.data;
-          console.log(data)
-          setCharacter(data)
-      }
-      } 
-      catch (error) {
-          console.log(error)
-      }
-  }
-
-  useEffect (() => {
-    getCharacter()
-  }, [])
+    
+    
 
 
-
-  return character ? (
+  return user.character ? (
     <nav className='navBar'>
      <div className= "navegations">   
     <Link className= "navLinks linkMap" to="/map">Map</Link>
@@ -42,10 +22,10 @@ function Navbar() {
     {/* <Link className= "navLinks" to="/create">Create enemy form</Link> */}
     </div>
     <div className='navStats'>
-        <p className= "navHealth">Health: {health}</p> 
+        <p className= "navHealth">Health: {user.health}</p> 
         <div className= "navResources">
-        <p className= "navGoldh">Gold: {character.gold}</p>
-        <p className= "navExplorationPoints">Exploration points: {character.points}</p>
+        <p className= "navGoldh">Gold: {user.character.gold}</p>
+        <p className= "navExplorationPoints">Exploration points: {user.character.points}</p>
         </div>
     </div>
     </nav>
