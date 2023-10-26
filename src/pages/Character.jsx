@@ -6,8 +6,6 @@ import { useContext, useEffect, useState } from "react";
 
 function Character() {
   const {user} = useContext(AuthContext)
-  const characterId = user.character._id
-  const [character, setCharacter] = useState()
 
   return user.character ? (
     <>

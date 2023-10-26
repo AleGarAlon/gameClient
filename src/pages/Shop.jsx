@@ -9,6 +9,7 @@ function Shop() {
   const [consumables, setConsumables] = useState([]);
 
   const getConsumables = async () => {
+    setConsumables([])
     const res = await axios.get(`${API_URL}/shop`);
     const data = res.data;
     console.log(data);
@@ -23,10 +24,8 @@ function Shop() {
     <>
       <div>Shop</div>
 
-      {consumables.map(consumable => (
-        <ul key={consumable._id}>
-          <img src={consumable.image} alt={consumable.name} />
-        </ul>
+      {consumables.map(consumable => ( 
+          <img key={consumable._id} src={consumable.image} alt={consumable.name} />
       ))}
 
       <Link to="/character">Return</Link>

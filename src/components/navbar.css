@@ -12,30 +12,11 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
 }
-.linkMap {
-    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png'); 
-    background-size: cover;
-    background-size: 100% 100%;
-  }
-  
-.linkShop {
-    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png');
-    background-size: cover;
-    background-size: 100% 100%;
-  }
-  
-.linkTrain {
-    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png');
-    background-size: cover;
-    background-size: 100% 100%;
-  }
-  
-.linkPit {
-    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png');
-    background-size: cover;
-    background-size: 100% 100%;
-  }
+
 
 
 .navHealth {
