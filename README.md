@@ -22,7 +22,8 @@
 ·Strength: Improves raw damage.
 ·Agility: Raises the chance to hit your enemy.
 ·Dexterity: Increases the chance to evade an incoming attack.
-·Constitution: Decreases the damage received when an attack lands on you.
+·Constitution: Increase the armor value.
+•Armor: Decreases the damage received when an attack lands on you.
 ·Fate: Raises the probability of performing a piercing strike (ignores enemy constitution). Fate also increases the chance of obtaining loot from defeated enemies.
 
 -In addition, the character can equip different pieces of equipment to increase their power (the character's power is the sum of all their stats + gear). The character can equip the following:
