@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/Auth.context";
 import { useContext, useEffect, useState } from "react";
 import { API_URL } from "../config/config.index";
+import "./shop.css"
 
 function Shop() {
   const { user, setUser } = useContext(AuthContext);
@@ -22,12 +23,25 @@ function Shop() {
 
   return user.character && consumables ? (
     <>
-      <div>Shop</div>
+      <h1>Shop</h1>
+        <div className="shopItems">
+        {consumables.map(consumable => ( 
+            <img className="shopItemImg" key={consumable._id} src={consumable.image} alt={consumable.name} />
+        ))}
+        </div>
 
-      {consumables.map(consumable => ( 
-          <img key={consumable._id} src={consumable.image} alt={consumable.name} />
-      ))}
-
+        <h4 >Consumables</h4>
+      <div className="characterConsumables">
+        {user.character.consumables && user.character.consumables.length > 0 ? (
+          user.character.consumables.map((consumable) => (
+            <ul key={consumable._id}>
+              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} />
+            </ul>
+          ))
+        ) : (
+          <p> </p>
+        )}
+      </div>
       <Link to="/character">Return</Link>
     </>
   ) : (

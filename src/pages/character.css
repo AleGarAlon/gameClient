@@ -1,0 +1,24 @@
+.character {
+    display: flex;
+    flex-direction: column;
+}
+.characterTop {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.characterInventory {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.inventoryItemImg {
+    width: 4rem;
+}
+
+.consumablesItemImg {
+    width: 4rem;
+}

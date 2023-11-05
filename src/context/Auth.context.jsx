@@ -37,7 +37,7 @@ const AuthContextWrapper = ({ children }) => {
 
   useEffect(() => {
     authenticateUser();
-  }, []);
+  },[]);
 
   const logout = () => {
     // Clear the user and token

@@ -15,7 +15,7 @@ function Map() {
             <Link to="/explore/mausoleum"><li>Mausoleum</li></Link>
             <Link to="/explore/chambers"><li>The Chambers</li></Link>
         </ul>
-        <Link to= "/Main">Return</Link>
+        <Link to= "/character">Return</Link>
     </>
   )
 }
