@@ -34,7 +34,7 @@ function Shop() {
       <div className="characterConsumables">
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
-            <ul key={consumable._id}>
+            <ul key={crypto.randomUUID()}>
               <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} />
             </ul>
           ))

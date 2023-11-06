@@ -46,6 +46,7 @@ function Explore () {
             <h3>{character.name}</h3> 
             <img className= "exploreImg" src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
             <ul>
+                <li>Damage: {character.damage}</li>
                 <li>Strength: {character.attributes.strength}</li>
                 <li>Dexterity: {character.attributes.dexterity}</li>
                 <li>Agility: {character.attributes.agility}</li>
@@ -59,7 +60,7 @@ function Explore () {
             <h3>{`${enemy.name}`}</h3>
             <img className= "exploreImg" src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
             <ul>
-                
+                <li>Damage: {enemy.damage}</li>
                 <li>Strength: {enemy.attributes.strength}</li>
                 <li>Dexterity: {enemy.attributes.dexterity}</li>
                 <li>Agility: {enemy.attributes.agility}</li>

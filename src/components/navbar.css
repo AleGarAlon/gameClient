@@ -1,6 +1,11 @@
+.navBar {
+    max-width: 100vw;
+}
+
 .navegations {
     display: flex;
     justify-content: space-around;
+    
     
 }
 .navLinks {

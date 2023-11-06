@@ -39,8 +39,8 @@ function Armory() {
         <h4 >Inventory</h4>
       <div className="characterInventory">
         {user.character.inventory && user.character.inventory.length > 0 ? (
-        user.character.inventory.map((item, index) => (
-        <div key={index}>
+        user.character.inventory.map((item) => (
+        <div key={crypto.randomUUID()}>
           {/* <p className="inventoryItemName">{item.name}</p> */}
           <img className="inventoryItemImg" src={item.image} alt={item.name} />
         </div>
