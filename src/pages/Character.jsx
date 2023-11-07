@@ -31,6 +31,17 @@ function Character() {
     }
   }
 
+  const handleUseConsumable = async (consumableId) => {
+    try {
+      const res = await axios.get(`${API_URL}/useConsumable?characterId=${user.character._id}&consumableId=${consumableId}`)
+      const data = res.data
+      console.log(data)
+      setUser({ ...user, character: data });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect (()=> {
     
 
@@ -70,7 +81,7 @@ function Character() {
         <h4 >Inventory</h4>
       <div className="characterInventory">
         {user.character.inventory && user.character.inventory.length > 0 ? (
-        user.character.inventory.map((item, index) => (
+        user.character.inventory.map((item) => (
         <div key={crypto.randomUUID()}>
     
           <img className="inventoryItemImg" src={item.image} alt={item.name} onClick={() => handleEquip(item._id)}/>
@@ -86,7 +97,7 @@ function Character() {
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
             <ul key={crypto.randomUUID()}>
-              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} />
+              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} onClick={() => handleUseConsumable(consumable._id)}/>
             </ul>
           ))
         ) : (

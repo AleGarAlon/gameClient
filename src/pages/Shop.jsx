@@ -17,6 +17,18 @@ function Shop() {
     setConsumables(data);
   };
 
+ const handleBuy = async (consumableId) => {
+  const res = await axios.get(`${API_URL}/shop/buy?characterId=${user.character._id}&consumableId=${consumableId}`)
+  const data = res.data
+  setUser({...user, character: data})
+}
+
+const handleSell = async (consumableId) => {
+  const res = await axios.get(`${API_URL}/shop/sell?characterId=${user.character._id}&consumableId=${consumableId}`)
+  const data = res.data
+  setUser({...user, character: data})
+}
+
   useEffect(() => {
     getConsumables();
   }, []);
@@ -26,7 +38,7 @@ function Shop() {
       <h1>Shop</h1>
         <div className="shopItems">
         {consumables.map(consumable => ( 
-            <img className="shopItemImg" key={consumable._id} src={consumable.image} alt={consumable.name} />
+            <img className="shopItemImg" key={consumable._id} src={consumable.image} alt={consumable.name} onClick={() => handleBuy(consumable._id)}/>
         ))}
         </div>
 
@@ -35,7 +47,7 @@ function Shop() {
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
             <ul key={crypto.randomUUID()}>
-              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} />
+              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} onClick={() => handleSell(consumable._id)}/>
             </ul>
           ))
         ) : (

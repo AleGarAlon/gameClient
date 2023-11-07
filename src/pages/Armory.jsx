@@ -6,7 +6,7 @@ import { API_URL } from "../config/config.index"
 import "./armory.css"
 
 function Armory() {
-    const {user} = useContext(AuthContext)
+    const {user, setUser} = useContext(AuthContext)
     const [items, setItems] = useState([])
 
     const getItems = async () => {
@@ -21,8 +21,19 @@ function Armory() {
         } catch (error) {
             console.log(error)
         }
-
     } 
+
+    const handleBuy = async (itemId) => {
+      const res = await axios.get(`${API_URL}/armory/buy?characterId=${user.character._id}&itemId=${itemId}`)
+      const data = res.data
+      setUser({...user, character: data})
+    }
+    
+    const handleSell = async (itemId) => {
+      const res = await axios.get(`${API_URL}/armory/sell?characterId=${user.character._id}&itemId=${itemId}`)
+      const data = res.data
+      setUser({...user, character: data})
+    }
 
     useEffect(()=> {
         getItems()
@@ -32,7 +43,7 @@ function Armory() {
     <div>Armory</div>
         <div className="armoryItems">
         {items.map(item => (
-                <img className="armoryItemImg" key={item._id} src={item.image} alt={item.name} />
+                <img className="armoryItemImg" key={item._id} src={item.image} alt={item.name} onClick={() => handleBuy(item._id)} />
         ))}
         </div>
 
@@ -42,7 +53,7 @@ function Armory() {
         user.character.inventory.map((item) => (
         <div key={crypto.randomUUID()}>
           {/* <p className="inventoryItemName">{item.name}</p> */}
-          <img className="inventoryItemImg" src={item.image} alt={item.name} />
+          <img className="inventoryItemImg" src={item.image} alt={item.name} onClick={() => handleSell(item._id)}/>
         </div>
         ))
         ) : (
