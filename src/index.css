@@ -13,11 +13,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-   margin: 0;
+  margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  max-width: 100vh;
   background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722691/game/UI%20elements/bg_01_02_wtb1xe.png');
   background-size: 100% 100%;
 }

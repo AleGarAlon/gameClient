@@ -11,7 +11,7 @@ function Character() {
 
   const handleEquip = async (itemId) => {
     try {
-      const res = await axios.get(`${API_URL}/equip/${itemId}`)
+      const res = await axios.get(`${API_URL}/equip?characterId=${user.character._id}&itemId=${itemId}`)
       const data = res.data
       console.log(data)
       setUser({ ...user, character: data });
@@ -22,7 +22,7 @@ function Character() {
 
   const handleUnequip = async (itemId) => {
     try {
-      const res = await axios.get(`${API_URL}/unequip/${itemId}`)
+      const res = await axios.get(`${API_URL}/unequip?characterId=${user.character._id}&itemId=${itemId}`)
       const data = res.data
       console.log(data)
       setUser({ ...user, character: data });
@@ -30,6 +30,11 @@ function Character() {
       console.log(error)
     }
   }
+
+  useEffect (()=> {
+    
+
+  }, [user])
 
   return user.character.attributes && user.character ? (
     <div className="character">
