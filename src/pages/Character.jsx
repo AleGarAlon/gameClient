@@ -3,6 +3,9 @@ import { API_URL } from "../config/config.index";
 import { AuthContext } from "../context/Auth.context";
 import { useContext, useEffect, useState } from "react";
 import "./character.css"
+import Tooltip from "../components/Tooltip";
+
+
 
 
 function Character() {
@@ -68,7 +71,8 @@ function Character() {
         return (
           <div key={type}>
             {gearItems ? ( 
-              <img className= "gearImg" src={gearItems.image} alt={type} onClick={() => handleUnequip(gearItems._id)}/>
+              // <img className= "gearImg" src={gearItems.image} alt={type} onClick={() => handleUnequip(gearItems._id)}/>
+              <Tooltip item = {gearItems} handleButton={handleUnequip} buttomText="Unequip" className="gearImg"  key={gearItems._id}/>
             ) : (
               <img className= "gearImg" src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699305604/game/UI%20elements/CasualUI_15_5_xohkuj.png" alt={type} />
             )}
@@ -82,10 +86,7 @@ function Character() {
       <div className="characterInventory">
         {user.character.inventory && user.character.inventory.length > 0 ? (
         user.character.inventory.map((item) => (
-        <div key={crypto.randomUUID()}>
-    
-          <img className="inventoryItemImg" src={item.image} alt={item.name} onClick={() => handleEquip(item._id)}/>
-        </div>
+        <Tooltip item = {item} handleButton={handleEquip} buttomText="Equip" className="inventoryItemImg" key={crypto.randomUUID()}/>
         ))
         ) : (
           <p>No items in inventory</p>
@@ -96,9 +97,7 @@ function Character() {
       <div className="characterConsumables">
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
-            <ul key={crypto.randomUUID()}>
-              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} onClick={() => handleUseConsumable(consumable._id)}/>
-            </ul>
+            <Tooltip item = {consumable} handleButton={handleUseConsumable} buttomText="Use" className="consumablesItemImg" key={crypto.randomUUID()}/>
           ))
         ) : (
           <p>No consumables available</p>

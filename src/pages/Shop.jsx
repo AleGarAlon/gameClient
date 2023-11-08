@@ -4,6 +4,7 @@ import { AuthContext } from "../context/Auth.context";
 import { useContext, useEffect, useState } from "react";
 import { API_URL } from "../config/config.index";
 import "./shop.css"
+import Tooltip from "../components/Tooltip";
 
 function Shop() {
   const { user, setUser } = useContext(AuthContext);
@@ -38,17 +39,16 @@ const handleSell = async (consumableId) => {
       <h1>Shop</h1>
         <div className="shopItems">
         {consumables.map(consumable => ( 
-            <img className="shopItemImg" key={consumable._id} src={consumable.image} alt={consumable.name} onClick={() => handleBuy(consumable._id)}/>
+            <Tooltip item = {consumable} handleButton={handleBuy} buttomText="Buy" className="shopItemImg" key={consumable._id}/>
         ))}
         </div>
 
         <h4 >Consumables</h4>
+        <p>The merchant will give you 1/4 of the value for your consumables</p>
       <div className="characterConsumables">
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
-            <ul key={crypto.randomUUID()}>
-              <img className="consumablesItemImg" src={consumable.image} alt={consumable.name} onClick={() => handleSell(consumable._id)}/>
-            </ul>
+              <Tooltip item = {consumable} handleButton={handleSell} buttomText="Sell" className="consumablesItemImg" key={crypto.randomUUID()}/>   
           ))
         ) : (
           <p> </p>

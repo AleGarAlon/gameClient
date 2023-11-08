@@ -22,15 +22,17 @@
 
 .characterInventory {
     display: flex;
-    flex-direction: row;
-
-
+  
+    justify-content: center;
 }
 
 .inventoryItemImg {
     width: 4rem;
 }
-
+.characterConsumables{
+    display: flex;
+    justify-content: center;
+}
 .consumablesItemImg {
     width: 4rem;
 }

@@ -4,6 +4,7 @@ import { AuthContext } from "../context/Auth.context"
 import { useContext, useEffect , useState} from "react"
 import { API_URL } from "../config/config.index"
 import "./armory.css"
+import Tooltip from "../components/Tooltip"
 
 function Armory() {
     const {user, setUser} = useContext(AuthContext)
@@ -43,18 +44,16 @@ function Armory() {
     <div>Armory</div>
         <div className="armoryItems">
         {items.map(item => (
-                <img className="armoryItemImg" key={item._id} src={item.image} alt={item.name} onClick={() => handleBuy(item._id)} />
+          <Tooltip item = {item} handleButton={handleBuy} buttomText="Buy" className="armoryItemImg" key={item._id}/>
         ))}
         </div>
 
         <h4 >Inventory</h4>
+        <p>The blacksmith will give you 1/4 of the value for your pieces of gear</p>
       <div className="characterInventory">
         {user.character.inventory && user.character.inventory.length > 0 ? (
         user.character.inventory.map((item) => (
-        <div key={crypto.randomUUID()}>
-          {/* <p className="inventoryItemName">{item.name}</p> */}
-          <img className="inventoryItemImg" src={item.image} alt={item.name} onClick={() => handleSell(item._id)}/>
-        </div>
+          <Tooltip item = {item} handleButton={handleSell} buttomText="Sell" className="inventoryItemImg" key={crypto.randomUUID()}/>
         ))
         ) : (
           <p>No items in inventory</p>
