@@ -1,6 +1,8 @@
 ## Links
 -Server repository: https://github.com/AleGarAlon/gameServer
+
 -Client repository: https://github.com/AleGarAlon/gameClient
+
 -Figma sketch: https://www.figma.com/file/DOhlEevelCKWfEdLTrqKNh/Game-Proyect?type=design&node-id=0-1&mode=design&t=QnbtIM7AclIDjayB-0
 
 ## Description
