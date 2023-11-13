@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import axios from "axios";
+import ("./signup.css")
 
 function Signup() {
     const [name, setName] = useState("")
@@ -24,26 +25,30 @@ function Signup() {
         }
     }
     return (
-        <>
+        <div className="signup">
         <h2>Signup Page</h2>
         <form onSubmit={handleSignup}>
-            <label> Name
-                <input type="text"
+            <label className="signupLabel">Name
+                <br />
+                <input className="signupInput" type="text"
                  value={name} 
                  required 
                  onChange={(e) => setName(e.target.value)}
                  />
-            </label>
-            <label htmlFor="Password"> Password
-                <input type="text"
+            </label >
+            <br />
+            <label className="signupLabel" htmlFor="Password">Password
+            <br />
+                <input className="signupInput" type="text"
                  value={password} 
                  required 
                  onChange={(e) => setPassword(e.target.value)}
                  />
             </label>
-            <button type="submit">Signup</button>
+            <br />
+            <button className="signupButton" type="submit">Signup</button>
         </form>
-        </>
+        </div>
 
     )
 }

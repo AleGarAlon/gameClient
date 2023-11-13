@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../config/config.index";
 import { AuthContext } from "../context/Auth.context";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import "./character.css"
 import Tooltip from "../components/Tooltip";
 
@@ -56,8 +56,8 @@ function Character() {
         <div className="characterInfo">
           <h1 className="characterName">{user.character.name}</h1>
           <img className="characterImg" src={user.character.image} alt={user.character.name} style={{width: "10rem"}}/>
-          <h4>Damage: {user.character.damage}</h4>
-          <h4>Armor: {user.character.attributes.armor}</h4>
+          <h4>Damage: {Math.round(user.character.damage * (0.1 * user.character.attributes.strength))}</h4>
+          <h4>Armor: {Math.round(user.character.attributes.armor * (0.1 * user.character.attributes.constitution))}</h4>
           <h4>Strength: {user.character.attributes.strength}</h4>
           <h4>Dexterity: {user.character.attributes.dexterity}</h4>
           <h4>Agility: {user.character.attributes.agility}</h4>

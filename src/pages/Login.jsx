@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import { AuthContext } from "../context/Auth.context";
-
+import ("./login.css")
 
 function Login() {
     const [name, setName] = useState("")
@@ -28,25 +28,29 @@ function Login() {
     }
     
     return (
-        <>
+        <div className="login">
         <h2>Login page</h2>
         <form onSubmit={handleLogin}>
-            <label> Name
-                <input type="text"
+            <label className="loginLabel">Name
+            <br />
+                <input className="loginInput" type="text"
                     value={name}
                     required 
                     onChange={(e)=> setName(e.target.value)}/>
             </label>
-            <label > Password
-                <input type="text" 
+            <br />
+            <label className="loginLabel" >Password
+            <br />
+                <input className="loginInput" type="text" 
                 value={password} 
                 required 
                 onChange={(e)=> setPassword(e.target.value)} />
             </label>
-            <button type="submit">Login</button>
+            <br />
+            <button className="loginButton" type="submit">Login</button>
         </form>
 
-        </>
+        </div>
     )
 }
 

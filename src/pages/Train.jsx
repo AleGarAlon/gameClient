@@ -49,7 +49,7 @@ function Train() {
      useEffect (()=>{
       findCharacter()
 
-     },[])
+     },[user])
   return user.character && stripCharacter.attributes ? (
     <>
     <div>Train</div>
@@ -59,27 +59,27 @@ function Train() {
     <ul>
       <li>
         Strength: {user.character.attributes.strength} ({stripCharacter.attributes.strength})
-        Upgrade cost: {stripCharacter.attributes.strength * 5}
+        Upgrade cost: {Math.round(stripCharacter.attributes.strength * stripCharacter.attributes.strength)}
         <button onClick={() => upgradeAttribute('strength')}>Upgrade</button>
       </li>
       <li>
         Desterity: {user.character.attributes.dexterity} ({stripCharacter.attributes.dexterity})
-        Upgrade cost: {stripCharacter.attributes.dexterity *5}
+        Upgrade cost: {Math.round(stripCharacter.attributes.dexterity * stripCharacter.attributes.dexterity **0.8)}
         <button onClick={() => upgradeAttribute('dexterity')}>Upgrade</button>
       </li>
       <li>
         Agility: {user.character.attributes.agility} ({stripCharacter.attributes.agility})
-        Upgrade cost: {stripCharacter.attributes.agility * 5}
+        Upgrade cost: {Math.round(stripCharacter.attributes.agility * stripCharacter.attributes.agility ** 0.8)}
         <button onClick={() => upgradeAttribute('agility')}>Upgrade</button>
       </li>
       <li>
         Constitution: {user.character.attributes.constitution} ({stripCharacter.attributes.constitution})
-        Upgrade cost: {stripCharacter.attributes.constitution * 5}
+        Upgrade cost: {Math.round(stripCharacter.attributes.constitution * stripCharacter.attributes.constitution ** 0.9)}
         <button onClick={() => upgradeAttribute('constitution')}>Upgrade</button>
       </li>
       <li>
         Fate: {user.character.attributes.fate} ({stripCharacter.attributes.fate})
-        Upgrade cost: {stripCharacter.attributes.fate * 5}
+        Upgrade cost: {Math.round(stripCharacter.attributes.fate * stripCharacter.attributes.fate ** 0.6)}
         <button onClick={() => upgradeAttribute('fate')}>Upgrade</button>
       </li>
     </ul>

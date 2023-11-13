@@ -1,14 +1,17 @@
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './starpage.css';
 
 function StartPage() {
   return (
     <>
-    <h1>GAME NAME</h1>
-    <Link to="/signup">signup</Link>
-    <Link to="/login">login</Link>
+      <h1 className='gameTitle'>Last path</h1>
+      <div className="startPageBtns">
+        <Link className="signupBtn" to="/signup">Signup</Link>
+        <Link className="loginBtn" to="/login">Login</Link>
+      </div>
     </>
-  )
+  );
 }
 
-export default StartPage
+export default StartPage;

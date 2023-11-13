@@ -7,13 +7,16 @@ function Map() {
     <h1>Map</h1>
 
     <ul className="explore"> Explore
-            <Link to="/explore/forest"><li>Forest</li></Link>
-            <Link to="/explore/cave"><li>Cave</li></Link>
-            <Link to="/explore/ruins"><li>Castle ruins</li></Link>
-            <Link to="/explore/dungeons"><li>Dungeons</li></Link>
-            <Link to="/explore/crypt"><li>Crypt</li></Link>
-            <Link to="/explore/mausoleum"><li>Mausoleum</li></Link>
-            <Link to="/explore/chambers"><li>The Chambers</li></Link>
+            <Link to="/explore/woods"><li>Wicked woods</li></Link>
+            <Link to="/explore/grove"><li>Corrupted grove</li></Link>
+            <Link to="/explore/spider"><li>Spider caves</li></Link>
+            <Link to="/explore/mine"><li>Dwarven mine</li></Link>
+            <Link to="/explore/cove"><li>The cove</li></Link>
+            <Link to="/explore/temple"><li>Sunken temple</li></Link>
+            <Link to="/explore/citadel"><li>Desolated citadel</li></Link>
+            <Link to="/explore/catacombs"><li>Catacombs</li></Link>
+            <Link to="/explore/shrine"><li>Forbiden shrine</li></Link>
+            <Link to="/explore/rift"><li>Demonic rift</li></Link>
         </ul>
         <Link to= "/character">Return</Link>
     </>

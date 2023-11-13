@@ -4,5 +4,10 @@
   padding: 1rem;
   text-align: center;
   align-items: center;
+  
 }
 
+body {
+ display: flex;
+  justify-content: center; 
+}

@@ -1,0 +1,50 @@
+.startPageBtns {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.gameTitle {
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699737871/game/UI%20elements/title_lbj4rd.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
+    height: 6rem;
+    width: 20rem;
+    color: saddlebrown;
+    padding-top: 0.4rem;
+    
+}
+.signupBtn {
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
+    width: 6rem;
+    height: 2.2rem;
+    text-decoration: none;
+    color:burlywood;
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.loginBtn {
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
+    width: 6rem;
+    height: 2.2rem;
+    text-decoration: none;
+    color:burlywood;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        
+}
+
+
+  
+  
+  

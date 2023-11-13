@@ -46,13 +46,13 @@ function Explore () {
             <h3>{character.name}</h3> 
             <img className= "exploreImg" src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
             <ul>
-                <li>Damage: {character.damage}</li>
+                <li>Damage: {Math.round(character.damage * (0.1 * character.attributes.strength))}</li>
                 <li>Strength: {character.attributes.strength}</li>
                 <li>Dexterity: {character.attributes.dexterity}</li>
                 <li>Agility: {character.attributes.agility}</li>
                 <li>Constitution: {character.attributes.constitution}</li>
                 <li>Fate: {character.attributes.fate}</li>
-                <li>Armor: {character.attributes.armor}</li>
+                <li>Armor: {Math.round (character.attributes.armor * (0.1 * character.attributes.constitution))}</li>
                 <li>Health: {character.health}</li>
             </ul>
             </div>
@@ -60,13 +60,13 @@ function Explore () {
             <h3>{`${enemy.name}`}</h3>
             <img className= "exploreImg" src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
             <ul>
-                <li>Damage: {enemy.damage}</li>
+                <li>Damage: {Math.round(enemy.damage * (0.1 * enemy.attributes.strength))}</li>
                 <li>Strength: {enemy.attributes.strength}</li>
                 <li>Dexterity: {enemy.attributes.dexterity}</li>
                 <li>Agility: {enemy.attributes.agility}</li>
                 <li>Constitution: {enemy.attributes.constitution}</li>
                 <li>Fate: {enemy.attributes.fate}</li>
-                <li>Armor: {enemy.attributes.armor}</li>
+                <li>Armor: {Math.round (enemy.attributes.armor * (0.1 * enemy.attributes.constitution))}</li>
                 <li>Health: {enemy.health}</li>
             </ul>
             </div>
