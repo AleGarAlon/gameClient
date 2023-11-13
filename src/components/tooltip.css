@@ -5,9 +5,8 @@
     width: 10rem; /* Ancho deseado */
     height: 15rem; /* Alto deseado */
     color: black; /* Color de texto deseado */
-    
-    
     display: none; /* Inicialmente, ocultar el tooltip */
+    
   }
   
   .tooltip.active {

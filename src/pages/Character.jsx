@@ -52,10 +52,11 @@ function Character() {
 
   return user.character.attributes && user.character ? (
     <div className="character">
+      <h1 className="characterName">{user.character.name}</h1>
       <div className="characterTop">
         <div className="characterInfo">
-          <h1 className="characterName">{user.character.name}</h1>
           <img className="characterImg" src={user.character.image} alt={user.character.name} style={{width: "10rem"}}/>
+          <div className="characterStats">
           <h4>Damage: {Math.round(user.character.damage * (0.1 * user.character.attributes.strength))}</h4>
           <h4>Armor: {Math.round(user.character.attributes.armor * (0.1 * user.character.attributes.constitution))}</h4>
           <h4>Strength: {user.character.attributes.strength}</h4>
@@ -63,6 +64,7 @@ function Character() {
           <h4>Agility: {user.character.attributes.agility}</h4>
           <h4>Constitution: {user.character.attributes.constitution}</h4>
           <h4>Fate: {user.character.attributes.fate}</h4>
+          </div>
         </div>
 
         <div className="characterGear" >
@@ -74,7 +76,7 @@ function Character() {
               // <img className= "gearImg" src={gearItems.image} alt={type} onClick={() => handleUnequip(gearItems._id)}/>
               <Tooltip item = {gearItems} handleButton={handleUnequip} buttomText="Unequip" className="gearImg"  key={gearItems._id}/>
             ) : (
-              <img className= "gearImg" src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699305604/game/UI%20elements/CasualUI_15_5_xohkuj.png" alt={type} />
+              <img className= "gearImg" src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699913631/game/UI%20elements/frame_c2_02_nqfzrg.png" alt={type} />
             )}
           </div>
         );

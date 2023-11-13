@@ -17,7 +17,7 @@ function Tooltip({ item, handleButton,buttomText,className }) {
           onClick={toggleTooltip}
         />
   
-        <div className={`tooltip ${isVisible ? 'active' : ''}`}>
+        <div className={`tooltip ${isVisible ? 'active' : ''}`} onClick={toggleTooltip}>
           <h4>{item.name}</h4>
           {item.damage && item.damage !== 0 ? (
               <p>Damage : {item.damage}</p>

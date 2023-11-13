@@ -4,10 +4,9 @@
 
 .navegations {
     display: flex;
-    justify-content: space-around;
-    
-    
+    justify-content: space-around;  
 }
+
 .navLinks {
   display: inline-block;
   padding: 10px 20px;
@@ -21,7 +20,10 @@
   background-size: cover;
   background-size: 100% 100%;
 }
-
+.characterLink{
+    text-decoration: none;
+    color: white
+}
 .navStats {
     display: flex;
     justify-content: space-around;
@@ -31,13 +33,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699829353/game/UI%20elements/LB_04_05_doysyd.png'); 
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699737875/game/UI%20elements/strip_red_unmvf7.png'); 
     background-size: cover;
-    background-size: 100% 100%;
-    width: 10rem;
-    
-    
+    background-size: auto 100%;
+    height: 1rem; 
+    background-position: left top;
 }
+
 .navImg{
     width: 2rem;
     height: 2rem;
@@ -48,4 +53,5 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 font-size: 1.2rem;
+margin-right: 1rem;
 }
