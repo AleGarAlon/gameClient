@@ -1,7 +1,30 @@
+.armory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.armoryTitle{
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699737871/game/UI%20elements/title_lbj4rd.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
+    height: 5rem;
+    width: 20rem;
+    color: saddlebrown;
+}
+.armoryImg {
+    width: 10rem;
+    margin-bottom: 2rem;
+    background-image: url("https://res.cloudinary.com/dvml0gelc/image/upload/v1697749132/game/UI%20elements/el_26_02_eauegf.png");
+    background-size: 100% 100%;
+    padding: 1.5rem;
+}
 .armoryItems {
     display: flex;
    justify-content: center;
 }
 .armoryItemImg {
     width: 4rem;
+    background-image: url("https://res.cloudinary.com/dvml0gelc/image/upload/v1699913632/game/UI%20elements/frame_c3_02_quyx9d.png");
+    background-size: 100% 100%
 }

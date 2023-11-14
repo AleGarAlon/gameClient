@@ -4,7 +4,7 @@ import { API_URL } from "../config/config.index"
 import { AuthContext } from "../context/Auth.context";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-
+import "./train.css"
 
 
 function Train() {
@@ -51,41 +51,56 @@ function Train() {
 
      },[user])
   return user.character && stripCharacter.attributes ? (
-    <>
-    <div>Train</div>
-
+    <div className="train">
+    <h1 className="trainTitle">Train</h1>
+    <img className="trainImg" src="https://res.cloudinary.com/dvml0gelc/image/upload/v1695039428/game/character%20portraits/f_09_zvq81y.png" alt="trainImg" />
     {notGold === "" ? (<p></p>): (<p>{notGold}</p>)}
 
-    <ul>
-      <li>
-        Strength: {user.character.attributes.strength} ({stripCharacter.attributes.strength})
-        Upgrade cost: {Math.round(stripCharacter.attributes.strength * stripCharacter.attributes.strength)}
-        <button onClick={() => upgradeAttribute('strength')}>Upgrade</button>
-      </li>
-      <li>
-        Desterity: {user.character.attributes.dexterity} ({stripCharacter.attributes.dexterity})
-        Upgrade cost: {Math.round(stripCharacter.attributes.dexterity * stripCharacter.attributes.dexterity **0.8)}
-        <button onClick={() => upgradeAttribute('dexterity')}>Upgrade</button>
-      </li>
-      <li>
-        Agility: {user.character.attributes.agility} ({stripCharacter.attributes.agility})
-        Upgrade cost: {Math.round(stripCharacter.attributes.agility * stripCharacter.attributes.agility ** 0.8)}
-        <button onClick={() => upgradeAttribute('agility')}>Upgrade</button>
-      </li>
-      <li>
-        Constitution: {user.character.attributes.constitution} ({stripCharacter.attributes.constitution})
-        Upgrade cost: {Math.round(stripCharacter.attributes.constitution * stripCharacter.attributes.constitution ** 0.9)}
-        <button onClick={() => upgradeAttribute('constitution')}>Upgrade</button>
-      </li>
-      <li>
-        Fate: {user.character.attributes.fate} ({stripCharacter.attributes.fate})
-        Upgrade cost: {Math.round(stripCharacter.attributes.fate * stripCharacter.attributes.fate ** 0.6)}
-        <button onClick={() => upgradeAttribute('fate')}>Upgrade</button>
-      </li>
-    </ul>
+    <div className="trainStats">
+      <div className="stat">
+        <p>Strength: {user.character.attributes.strength} ({stripCharacter.attributes.strength})</p>
+          <div className="statCost">
+            <img className="coinImg" onClick={() => upgradeAttribute('strength')} src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png" alt="coins" />
+            <p>{Math.round(stripCharacter.attributes.strength * stripCharacter.attributes.strength)}</p>
+          </div>
+      </div> 
 
-    <Link to= "/character">Return</Link>
-  </>
+      <div className="stat">
+        <p>Dexterity: {user.character.attributes.dexterity} ({stripCharacter.attributes.dexterity})</p>
+          <div className="statCost">
+            <img className="coinImg" onClick={() => upgradeAttribute('dexterity')} src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png" alt="coins" />
+            <p>{Math.round(stripCharacter.attributes.dexterity * stripCharacter.attributes.dexterity**0.8)}</p>
+          </div>
+      </div>
+      <div className="stat">
+        <p>Agility: {user.character.attributes.agility} ({stripCharacter.attributes.agility})</p>
+          <div className="statCost">
+            <img className="coinImg" onClick={() => upgradeAttribute('agility')} src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png" alt="coins" />
+            <p>{Math.round(stripCharacter.attributes.agility * stripCharacter.attributes.agility**0.8)}</p>
+          </div>
+      </div>
+
+      <div className="stat">
+        <p>Constitution: {user.character.attributes.constitution} ({stripCharacter.attributes.constitution})</p>
+          <div className="statCost">
+            <img className="coinImg" onClick={() => upgradeAttribute('constitution')} src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png" alt="coins" />
+            <p>{Math.round(stripCharacter.attributes.constitution * stripCharacter.attributes.constitution**0.9)}</p>
+          </div>
+      </div>
+
+      <div className="stat">
+        <p>Fate: {user.character.attributes.fate} ({stripCharacter.attributes.fate})</p>
+          <div className="statCost">
+            <img className="coinImg" onClick={() => upgradeAttribute('fate')} src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png" alt="coins" />
+            <p>{Math.round(stripCharacter.attributes.fate * stripCharacter.attributes.fate**0.6)}</p>
+          </div>
+      </div>
+
+
+    </div>
+
+    <Link className="characterButton" to= "/character">Return</Link>
+  </div>
     
 
     

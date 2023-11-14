@@ -44,7 +44,7 @@ function Explore () {
         <div className="exploreCombatants">
             <div className="exploreCharacter">
             <h3>{character.name}</h3> 
-            <img className= "exploreImg" src={character.image} alt={`${character.name} image`} style={{width: "10rem"}} />
+            <img className= "exploreImg" src={character.image} alt={`${character.name} image`} />
             <ul>
                 <li>Damage: {Math.round(character.damage * (0.1 * character.attributes.strength))}</li>
                 <li>Strength: {character.attributes.strength}</li>
@@ -58,7 +58,7 @@ function Explore () {
             </div>
             <div className="exploreEnemy">
             <h3>{`${enemy.name}`}</h3>
-            <img className= "exploreImg" src={enemy.image} alt={`${enemy.name} image`} style={{width: "10rem"}} />
+            <img className= "exploreImg" src={enemy.image} alt={`${enemy.name} image`} />
             <ul>
                 <li>Damage: {Math.round(enemy.damage * (0.1 * enemy.attributes.strength))}</li>
                 <li>Strength: {enemy.attributes.strength}</li>
@@ -74,7 +74,7 @@ function Explore () {
         <h3>Combat results</h3>
             <h3>{victory}</h3>
             
-
+        <div>   
             <h4 className="exploreAttacker">{combat1.map((combatLog, index) => {
                 return(
                     <p key = {index}>{combatLog}</p>
@@ -86,7 +86,8 @@ function Explore () {
                     <p key = {index}>{combatLog}</p>
                 )
             })}</h4>
-            <Link to = "/character">Return to the village</Link>
+        </div> 
+            <Link className="characterButton" to = "/character">Return</Link>
             
             
         </>

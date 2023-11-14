@@ -18,7 +18,7 @@ function Map() {
             <Link to="/explore/shrine"><li>Forbiden shrine</li></Link>
             <Link to="/explore/rift"><li>Demonic rift</li></Link>
         </ul>
-        <Link to= "/character">Return</Link>
+        <Link className="characterButton" to= "/character">Return</Link>
     </>
   )
 }

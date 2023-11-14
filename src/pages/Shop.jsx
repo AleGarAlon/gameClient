@@ -35,8 +35,9 @@ const handleSell = async (consumableId) => {
   }, []);
 
   return user.character && consumables ? (
-    <>
-      <h1>Shop</h1>
+    <div className="shop">
+      <h1 className="shopTitle">Shop</h1>
+      <img className="merchantImg" src="https://res.cloudinary.com/dvml0gelc/image/upload/v1695039409/game/character%20portraits/f_04_ehks9z.png" alt="MerchantImg" />
         <div className="shopItems">
         {consumables.map(consumable => ( 
             <Tooltip item = {consumable} handleButton={handleBuy} buttomText="Buy" className="shopItemImg" key={consumable._id}/>
@@ -44,18 +45,18 @@ const handleSell = async (consumableId) => {
         </div>
 
         <h4 >Consumables</h4>
-        <p>The merchant will give you 1/4 of the value for your consumables</p>
       <div className="characterConsumables">
         {user.character.consumables && user.character.consumables.length > 0 ? (
           user.character.consumables.map((consumable) => (
-              <Tooltip item = {consumable} handleButton={handleSell} buttomText="Sell" className="consumablesItemImg" key={crypto.randomUUID()}/>   
-          ))
-        ) : (
-          <p> </p>
-        )}
+            <Tooltip item = {consumable} handleButton={handleSell} buttomText="Sell" className="consumablesItemImg" key={crypto.randomUUID()}/>   
+            ))
+            ) : (
+              <p> </p>
+              )}
       </div>
-      <Link to="/character">Return</Link>
-    </>
+        <p>The merchant will give you 1/4 of the value for your consumables</p>
+      <Link className="characterButton" to="/character">Return</Link>
+    </div>
   ) : (
     <h4>Loading...</h4>
   );
