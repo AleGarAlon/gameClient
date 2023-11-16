@@ -1,11 +1,12 @@
-import   { useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../config/config.index';
+import { useState } from "react";
+import axios from "axios";
+import { API_URL } from "../config/config.index";
 
 function CreateEnemy() {
   const [enemyData, setEnemyData] = useState({
-    name: '',
-    image: 'https://res.cloudinary.com/dvml0gelc/image/upload/v1691593037/Zen_z7ulvc.png',
+    name: "",
+    image:
+      "https://res.cloudinary.com/dvml0gelc/image/upload/v1691593037/Zen_z7ulvc.png",
     gold: 0,
     inventory: [],
     consumables: [],
@@ -25,15 +26,13 @@ function CreateEnemy() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(enemyData)
+    console.log(enemyData);
     try {
-      
       await axios.post(`${API_URL}/create/enemy`, enemyData);
 
-      
       setEnemyData({
-        name: '',
-        image: '',
+        name: "",
+        image: "",
         gold: 0,
         inventory: [],
         consumables: [],
@@ -51,7 +50,7 @@ function CreateEnemy() {
         locationNumber: 0,
       });
     } catch (error) {
-      console.error('Error al crear el enemigo', error);
+      console.error("Error al crear el enemigo", error);
     }
   };
 
@@ -65,12 +64,12 @@ function CreateEnemy() {
 
   const handleAttributeChange = (e) => {
     const { name, value } = e.target;
-  
+
     setEnemyData({
       ...enemyData,
       attributes: {
         ...enemyData.attributes,
-        [name]: value
+        [name]: value,
       },
     });
   };
@@ -81,23 +80,48 @@ function CreateEnemy() {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type="text" name="name" value={enemyData.name} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="name"
+            value={enemyData.name}
+            onChange={handleInputChange}
+          />
         </label>
         <label>
           Image:
-          <input type="text" name="image" value={enemyData.image} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="image"
+            value={enemyData.image}
+            onChange={handleInputChange}
+          />
         </label>
         <label>
           Gold:
-          <input type="number" name="gold" value={enemyData.gold} onChange={handleInputChange} />
+          <input
+            type="number"
+            name="gold"
+            value={enemyData.gold}
+            onChange={handleInputChange}
+          />
         </label>
         <label>
           Inventory:
-          <input type="text" name="inventory" value={enemyData.inventory} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="inventory"
+            value={enemyData.inventory}
+            onChange={handleInputChange}
+          />
         </label>
         <label>
           Consumables:
-          <input type="text" name="consumables" value={enemyData.consumables} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="consumables"
+            value={enemyData.consumables}
+            onChange={handleInputChange}
+          />
         </label>
         <label>
           Strength:

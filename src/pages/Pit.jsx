@@ -1,9 +1,5 @@
-
-
 function Pit() {
-  return (
-    <div>Pit</div>
-  )
+  return <div>Pit</div>;
 }
 
-export default Pit
+export default Pit;

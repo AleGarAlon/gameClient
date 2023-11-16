@@ -37,7 +37,7 @@ const AuthContextWrapper = ({ children }) => {
 
   useEffect(() => {
     authenticateUser();
-  },[]);
+  }, []);
 
   const logout = () => {
     // Clear the user and token
@@ -46,14 +46,13 @@ const AuthContextWrapper = ({ children }) => {
     setIsLoggedIn(false);
   };
 
-  const updateUserDB = async (user)=> {
-        try {
-            
-             await axios.patch(`${API_URL}/character/${user._id}`, user)
-        } catch (error) {
-            console.log(error)
-        }
+  const updateUserDB = async (user) => {
+    try {
+      await axios.patch(`${API_URL}/character/${user._id}`, user);
+    } catch (error) {
+      console.log(error);
     }
+  };
   return (
     <AuthContext.Provider
       value={{

@@ -4,6 +4,19 @@ justify-content:space-between
 }
 
 .exploreImg{
-    width: 10rem;
-    
+    width: 10rem;  
+}
+
+.combatLog {
+    display: flex;
+    align-items:center ;
+    font-size: 1rem;
+}
+.enemyStats{
+    font-size: 0.9rem;
+    width: 9rem;
+    margin:0.1rem;
+    background-color: rgb(142, 24, 1);
+    border-radius: 1rem;
+    border: 0.3rem solid rgb(70, 0, 0);
 }
