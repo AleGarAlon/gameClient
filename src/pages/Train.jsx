@@ -26,7 +26,14 @@ function Train() {
   };
 
   const upgradeAttribute = async (attributeName) => {
-    if (user.character.gold >= stripCharacter.attributes[attributeName] * 5) {
+    setNotGold("");
+    if (
+      user.character.gold >=
+      stripCharacter.attributes[attributeName] **
+        (stripCharacter.attributes[attributeName] * 0.16) +
+        stripCharacter.attributes[attributeName] *
+          stripCharacter.attributes[attributeName]
+    ) {
       try {
         const updatedCharacter = await axios.patch(
           `${API_URL}/character/${user.character._id}`,
@@ -54,7 +61,7 @@ function Train() {
         src="https://res.cloudinary.com/dvml0gelc/image/upload/v1695039428/game/character%20portraits/f_09_zvq81y.png"
         alt="trainImg"
       />
-      {notGold === "" ? <p></p> : <p>{notGold}</p>}
+      {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <div className="trainStats">
         <div className="stat">
@@ -71,8 +78,10 @@ function Train() {
             />
             <p>
               {Math.round(
-                stripCharacter.attributes.strength *
-                  stripCharacter.attributes.strength
+                stripCharacter.attributes.strength **
+                  (stripCharacter.attributes.strength * 0.11) +
+                  stripCharacter.attributes.strength *
+                    stripCharacter.attributes.strength
               )}
             </p>
           </div>
@@ -92,8 +101,10 @@ function Train() {
             />
             <p>
               {Math.round(
-                stripCharacter.attributes.dexterity *
-                  stripCharacter.attributes.dexterity ** 0.8
+                stripCharacter.attributes.dexterity **
+                  (stripCharacter.attributes.dexterity * 0.11) +
+                  stripCharacter.attributes.dexterity *
+                    stripCharacter.attributes.dexterity
               )}
             </p>
           </div>
@@ -112,8 +123,10 @@ function Train() {
             />
             <p>
               {Math.round(
-                stripCharacter.attributes.agility *
-                  stripCharacter.attributes.agility ** 0.8
+                stripCharacter.attributes.agility **
+                  (stripCharacter.attributes.agility * 0.11) +
+                  stripCharacter.attributes.agility *
+                    stripCharacter.attributes.agility
               )}
             </p>
           </div>
@@ -133,8 +146,10 @@ function Train() {
             />
             <p>
               {Math.round(
-                stripCharacter.attributes.constitution *
-                  stripCharacter.attributes.constitution ** 0.9
+                stripCharacter.attributes.constitution **
+                  (stripCharacter.attributes.constitution * 0.11) +
+                  stripCharacter.attributes.constitution *
+                    stripCharacter.attributes.constitution
               )}
             </p>
           </div>
@@ -154,8 +169,10 @@ function Train() {
             />
             <p>
               {Math.round(
-                stripCharacter.attributes.fate *
-                  stripCharacter.attributes.fate ** 0.6
+                stripCharacter.attributes.fate **
+                  (stripCharacter.attributes.fate * 0.11) +
+                  stripCharacter.attributes.fate *
+                    stripCharacter.attributes.fate
               )}
             </p>
           </div>

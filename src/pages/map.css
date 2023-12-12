@@ -1,0 +1,16 @@
+.explore {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.exploreImg {
+    width: 4rem;
+}
+
+.zoneTitle {
+    text-decoration: none;
+    color: saddlebrown;
+
+}

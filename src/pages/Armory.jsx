@@ -9,6 +9,7 @@ import Tooltip from "../components/Tooltip";
 function Armory() {
   const { user, setUser } = useContext(AuthContext);
   const [items, setItems] = useState([]);
+  const [notGold, setNotGold] = useState("");
 
   const getItems = async () => {
     try {
@@ -24,14 +25,18 @@ function Armory() {
     }
   };
 
-  const handleBuy = async (itemId) => {
-    const res = await axios.get(
-      `${API_URL}/armory/buy?characterId=${user.character._id}&itemId=${itemId}`
-    );
-    const data = res.data;
-    setUser({ ...user, character: data });
+  const handleBuy = async (itemId, itemPrice) => {
+    setNotGold("");
+    if (user.character.gold >= itemPrice) {
+      const res = await axios.get(
+        `${API_URL}/armory/buy?characterId=${user.character._id}&itemId=${itemId}`
+      );
+      const data = res.data;
+      setUser({ ...user, character: data });
+    } else {
+      setNotGold("Not enough gold");
+    }
   };
-
   const handleSell = async (itemId) => {
     const res = await axios.get(
       `${API_URL}/armory/sell?characterId=${user.character._id}&itemId=${itemId}`
@@ -55,13 +60,14 @@ function Armory() {
         {items.map((item) => (
           <Tooltip
             item={item}
-            handleButton={handleBuy}
+            handleButton={() => handleBuy(item._id, item.price)}
             buttomText="Buy"
             className="armoryItemImg"
             key={item._id}
           />
         ))}
       </div>
+      {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <h4>Inventory</h4>
       <div className="characterInventory">

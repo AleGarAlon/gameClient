@@ -48,7 +48,7 @@ function Login() {
           <br />
           <input
             className="loginInput"
-            type="text"
+            type="password"
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}

@@ -43,7 +43,7 @@ function Signup() {
           <br />
           <input
             className="signupInput"
-            type="text"
+            type="password"
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}

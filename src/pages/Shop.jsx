@@ -9,6 +9,7 @@ import Tooltip from "../components/Tooltip";
 function Shop() {
   const { user, setUser } = useContext(AuthContext);
   const [consumables, setConsumables] = useState([]);
+  const [notGold, setNotGold] = useState("");
 
   const getConsumables = async () => {
     setConsumables([]);
@@ -18,12 +19,17 @@ function Shop() {
     setConsumables(data);
   };
 
-  const handleBuy = async (consumableId) => {
-    const res = await axios.get(
-      `${API_URL}/shop/buy?characterId=${user.character._id}&consumableId=${consumableId}`
-    );
-    const data = res.data;
-    setUser({ ...user, character: data });
+  const handleBuy = async (consumableId, consumablePrice) => {
+    setNotGold("");
+    if (user.character.gold >= consumablePrice) {
+      const res = await axios.get(
+        `${API_URL}/shop/buy?characterId=${user.character._id}&consumableId=${consumableId}`
+      );
+      const data = res.data;
+      setUser({ ...user, character: data });
+    } else {
+      setNotGold("Not enough gold");
+    }
   };
 
   const handleSell = async (consumableId) => {
@@ -50,13 +56,15 @@ function Shop() {
         {consumables.map((consumable) => (
           <Tooltip
             item={consumable}
-            handleButton={handleBuy}
+            handleButton={() => handleBuy(consumable._id, consumable.price)}
             buttomText="Buy"
             className="shopItemImg"
             key={consumable._id}
           />
         ))}
       </div>
+
+      {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <h4>Consumables</h4>
       <div className="characterConsumables">

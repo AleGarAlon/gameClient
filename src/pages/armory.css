@@ -28,3 +28,7 @@
     background-image: url("https://res.cloudinary.com/dvml0gelc/image/upload/v1699913632/game/UI%20elements/frame_c3_02_quyx9d.png");
     background-size: 100% 100%
 }
+.notGold {
+    color: red;
+    font-weight: bold;
+}
