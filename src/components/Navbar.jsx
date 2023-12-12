@@ -6,7 +6,7 @@ import "./navbar.css";
 function Navbar() {
   const { user } = useContext(AuthContext);
   const [healthPercentage, setHealthPercentage] = useState("");
-
+  console.log("navbar Character", user.character);
   useEffect(() => {
     if (user.character.health) {
       console.log(user.character.health);

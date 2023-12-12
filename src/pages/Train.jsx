@@ -30,7 +30,7 @@ function Train() {
     if (
       user.character.gold >=
       stripCharacter.attributes[attributeName] **
-        (stripCharacter.attributes[attributeName] * 0.16) +
+        (stripCharacter.attributes[attributeName] * 0.11) +
         stripCharacter.attributes[attributeName] *
           stripCharacter.attributes[attributeName]
     ) {
