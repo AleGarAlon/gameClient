@@ -45,6 +45,14 @@ function Armory() {
     setUser({ ...user, character: data });
   };
 
+  const handleSellAll = async () => {
+    const res = await axios.get(
+      `${API_URL}/armory/sellAll?characterId=${user.character._id}`
+    );
+    const data = res.data;
+    setUser({ ...user, character: data });
+  };
+
   useEffect(() => {
     getItems();
   }, []);
@@ -70,6 +78,9 @@ function Armory() {
       {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <h4>Inventory</h4>
+      <button className="sellAllBtn" onClick={() => handleSellAll()}>
+        Sell all items
+      </button>
       <div className="characterInventory">
         {user.character.inventory && user.character.inventory.length > 0 ? (
           user.character.inventory.map((item) => (
