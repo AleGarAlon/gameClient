@@ -30,16 +30,11 @@ flex-direction: column;
     justify-content: space-between;
     flex-wrap: nowrap;
     
+    
 }
 .statCost{
     display: flex;
     align-items: baseline;
-    background-color: #32271b;
-    border-radius: 1rem;
-    padding-right: 1rem;
-    border: 0.1rem solid rgb(51 31 14);
-    
-
 }
 .coinImg{
     width: 1.5rem;
@@ -47,4 +42,14 @@ flex-direction: column;
     margin-left:1rem ;
     margin-top: 0.3rem;
 }
-
+.trainBtn { display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    color: burlywood;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1697722678/game/UI%20elements/plank_15_zd6j9x.png'); 
+    background-size: cover;
+    background-size: 100% 100%;}

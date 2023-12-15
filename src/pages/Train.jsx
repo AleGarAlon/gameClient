@@ -10,6 +10,7 @@ function Train() {
   const { user, setUser } = useContext(AuthContext);
   const [notGold, setNotGold] = useState("");
   const [stripCharacter, setStripCharacter] = useState({});
+  const [loading, setLoading] = useState(false);
 
   console.log("Your user inside training", user);
 
@@ -27,6 +28,7 @@ function Train() {
 
   const upgradeAttribute = async (attributeName) => {
     setNotGold("");
+    setLoading(true);
     if (
       user.character.gold >=
       stripCharacter.attributes[attributeName] **
@@ -42,11 +44,13 @@ function Train() {
         console.log("Your character after the lvl up", updatedCharacter.data);
 
         setUser({ ...user, character: updatedCharacter.data });
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
     } else {
       setNotGold("Not enough gold");
+      setLoading(false);
     }
   };
 
@@ -64,7 +68,7 @@ function Train() {
       {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <div className="trainStats">
-        <div className="stat">
+        <div className="stat" onClick={() => upgradeAttribute("strength")}>
           <p>
             Strength: {user.character.attributes.strength} (
             {stripCharacter.attributes.strength})
@@ -72,7 +76,6 @@ function Train() {
           <div className="statCost">
             <img
               className="coinImg"
-              onClick={() => upgradeAttribute("strength")}
               src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="coins"
             />
@@ -85,6 +88,12 @@ function Train() {
               )}
             </p>
           </div>
+          <button
+            className="trainBtn"
+            onClick={() => upgradeAttribute("strength")}
+          >
+            Train
+          </button>
         </div>
 
         <div className="stat">
@@ -95,7 +104,6 @@ function Train() {
           <div className="statCost">
             <img
               className="coinImg"
-              onClick={() => upgradeAttribute("dexterity")}
               src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="coins"
             />
@@ -108,7 +116,14 @@ function Train() {
               )}
             </p>
           </div>
+          <button
+            className="trainBtn"
+            onClick={() => upgradeAttribute("dexterity")}
+          >
+            Train
+          </button>
         </div>
+
         <div className="stat">
           <p>
             Agility: {user.character.attributes.agility} (
@@ -117,7 +132,6 @@ function Train() {
           <div className="statCost">
             <img
               className="coinImg"
-              onClick={() => upgradeAttribute("agility")}
               src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="coins"
             />
@@ -130,6 +144,12 @@ function Train() {
               )}
             </p>
           </div>
+          <button
+            className="trainBtn"
+            onClick={() => upgradeAttribute("agility")}
+          >
+            Train
+          </button>
         </div>
 
         <div className="stat">
@@ -140,7 +160,6 @@ function Train() {
           <div className="statCost">
             <img
               className="coinImg"
-              onClick={() => upgradeAttribute("constitution")}
               src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="coins"
             />
@@ -153,6 +172,12 @@ function Train() {
               )}
             </p>
           </div>
+          <button
+            className="trainBtn"
+            onClick={() => upgradeAttribute("constitution")}
+          >
+            Train
+          </button>
         </div>
 
         <div className="stat">
@@ -163,7 +188,6 @@ function Train() {
           <div className="statCost">
             <img
               className="coinImg"
-              onClick={() => upgradeAttribute("fate")}
               src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="coins"
             />
@@ -176,6 +200,16 @@ function Train() {
               )}
             </p>
           </div>
+          {loading === true ? (
+            <p>Learning...</p>
+          ) : (
+            <button
+              className="trainBtn"
+              onClick={() => upgradeAttribute("fate")}
+            >
+              Train
+            </button>
+          )}
         </div>
       </div>
 
