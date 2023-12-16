@@ -68,7 +68,7 @@ function Train() {
       {notGold === "" ? <p></p> : <p className="notGold">{notGold}</p>}
 
       <div className="trainStats">
-        <div className="stat" onClick={() => upgradeAttribute("strength")}>
+        <div className="stat">
           <p>
             Strength: {user.character.attributes.strength} (
             {stripCharacter.attributes.strength})
