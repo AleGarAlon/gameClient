@@ -89,7 +89,7 @@ function Train() {
             </p>
           </div>
           {loading === true ? (
-            <p>Learning...</p>
+            <p>Training...</p>
           ) : (
             <button
               className="trainBtn"
@@ -121,7 +121,7 @@ function Train() {
             </p>
           </div>
           {loading === true ? (
-            <p>Learning...</p>
+            <p>Training...</p>
           ) : (
             <button
               className="trainBtn"
@@ -153,7 +153,7 @@ function Train() {
             </p>
           </div>
           {loading === true ? (
-            <p>Learning...</p>
+            <p>Training...</p>
           ) : (
             <button
               className="trainBtn"
@@ -185,7 +185,7 @@ function Train() {
             </p>
           </div>
           {loading === true ? (
-            <p>Learning...</p>
+            <p>Training...</p>
           ) : (
             <button
               className="trainBtn"
@@ -196,7 +196,7 @@ function Train() {
           )}
         </div>
 
-        <div className="stat">
+        {/* <div className="stat">
           <p>
             Fate: {user.character.attributes.fate} (
             {stripCharacter.attributes.fate})
@@ -217,7 +217,7 @@ function Train() {
             </p>
           </div>
           {loading === true ? (
-            <p>Learning...</p>
+            <p>Training...</p>
           ) : (
             <button
               className="trainBtn"
@@ -226,7 +226,7 @@ function Train() {
               Train
             </button>
           )}
-        </div>
+        </div> */}
       </div>
 
       <Link className="characterButton" to="/character">

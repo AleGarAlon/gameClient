@@ -52,21 +52,21 @@ function Explore() {
               Damage:{" "}
               {Math.round(
                 user.character.damage *
-                  (0.1 * user.character.attributes.strength)
+                  1.1 ** user.character.attributes.strength
               )}
             </h4>
             <h4>
               Armor:{" "}
               {Math.round(
                 user.character.attributes.armor *
-                  (0.1 * user.character.attributes.constitution)
+                  1.1 ** user.character.attributes.constitution
               )}
             </h4>
             <h4>Strength: {user.character.attributes.strength}</h4>
             <h4>Dexterity: {user.character.attributes.dexterity}</h4>
             <h4>Agility: {user.character.attributes.agility}</h4>
             <h4>Constitution: {user.character.attributes.constitution}</h4>
-            <h4>Fate: {user.character.attributes.fate}</h4>
+            <h4>Health: {user.character.health}</h4>
           </div>
         </div>
         <div className="exploreEnemy">
@@ -79,19 +79,19 @@ function Explore() {
           <div className="enemyStats">
             <h4>
               Damage:{" "}
-              {Math.round(enemy.damage * (0.1 * enemy.attributes.strength))}
+              {Math.round(enemy.damage * 1.1 ** enemy.attributes.strength)}
             </h4>
             <h4>
               Armor:{" "}
               {Math.round(
-                enemy.attributes.armor * (0.1 * enemy.attributes.constitution)
+                enemy.attributes.armor * 1.1 ** enemy.attributes.constitution
               )}
             </h4>
             <h4>Strength: {enemy.attributes.strength}</h4>
             <h4>Dexterity: {enemy.attributes.dexterity}</h4>
             <h4>Agility: {enemy.attributes.agility}</h4>
             <h4>Constitution: {enemy.attributes.constitution}</h4>
-            <h4>Fate: {enemy.attributes.fate}</h4>
+            <h4>Health: {enemy.health}</h4>
           </div>
         </div>
       </div>

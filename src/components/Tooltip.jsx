@@ -1,7 +1,14 @@
 import { useState } from "react";
 import "./tooltip.css";
 
-function Tooltip({ item, handleButton, buttomText, className }) {
+function Tooltip({
+  item,
+  handleButton,
+  buttomText,
+  className,
+  handleButtonX5,
+  buttonTextX5,
+}) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleTooltip = () => {
@@ -54,6 +61,11 @@ function Tooltip({ item, handleButton, buttomText, className }) {
         )}
         <p>Price: {item.price}</p>
         <button onClick={() => handleButton(item._id)}>{buttomText}</button>
+        {handleButtonX5 && buttonTextX5 && (
+          <button onClick={() => handleButtonX5(item._id)}>
+            {buttonTextX5}
+          </button>
+        )}
       </div>
     </div>
   );

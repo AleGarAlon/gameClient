@@ -75,21 +75,21 @@ function Character() {
               Damage:{" "}
               {Math.round(
                 user.character.damage *
-                  (0.1 * user.character.attributes.strength)
+                  1.1 ** user.character.attributes.strength
               )}
             </h4>
             <h4>
               Armor:{" "}
               {Math.round(
                 user.character.attributes.armor *
-                  (0.1 * user.character.attributes.constitution)
+                  1.1 ** user.character.attributes.constitution
               )}
             </h4>
             <h4>Strength: {user.character.attributes.strength}</h4>
             <h4>Dexterity: {user.character.attributes.dexterity}</h4>
             <h4>Agility: {user.character.attributes.agility}</h4>
             <h4>Constitution: {user.character.attributes.constitution}</h4>
-            <h4>Fate: {user.character.attributes.fate}</h4>
+            {/* <h4>Fate: {user.character.attributes.fate}</h4> */}
           </div>
         </div>
 

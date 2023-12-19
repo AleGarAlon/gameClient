@@ -31,6 +31,18 @@ function Shop() {
       setNotGold("Not enough gold");
     }
   };
+  const handleBuyX5 = async (consumableId, consumablePrice) => {
+    setNotGold("");
+    if (user.character.gold >= consumablePrice) {
+      const res = await axios.get(
+        `${API_URL}/shop/buyX5?characterId=${user.character._id}&consumableId=${consumableId}`
+      );
+      const data = res.data;
+      setUser({ ...user, character: data });
+    } else {
+      setNotGold("Not enough gold");
+    }
+  };
 
   const handleSell = async (consumableId) => {
     const res = await axios.get(
@@ -57,7 +69,9 @@ function Shop() {
           <Tooltip
             item={consumable}
             handleButton={() => handleBuy(consumable._id, consumable.price)}
+            handleButtonX5={() => handleBuyX5(consumable._id, consumable.price)}
             buttomText="Buy"
+            buttonTextX5="Buy 5"
             className="shopItemImg"
             key={consumable._id}
           />

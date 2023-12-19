@@ -22,11 +22,16 @@
 }
 .characterLink{
     text-decoration: none;
-    color: white
+    color: white;
+    
+
 }
 .navStats {
     display: flex;
     justify-content: space-around;
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699737836/game/UI%20elements/Plank_09_m06r2a.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
 }
 
 .navHealth {
