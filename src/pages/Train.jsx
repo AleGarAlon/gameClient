@@ -32,7 +32,7 @@ function Train() {
     if (
       user.character.gold >=
       stripCharacter.attributes[attributeName] **
-        (stripCharacter.attributes[attributeName] * 0.11) +
+        (stripCharacter.attributes[attributeName] * 0.12) +
         stripCharacter.attributes[attributeName] *
           stripCharacter.attributes[attributeName]
     ) {
@@ -82,7 +82,7 @@ function Train() {
             <p>
               {Math.round(
                 stripCharacter.attributes.strength **
-                  (stripCharacter.attributes.strength * 0.11) +
+                  (stripCharacter.attributes.strength * 0.12) +
                   stripCharacter.attributes.strength *
                     stripCharacter.attributes.strength
               )}
@@ -114,7 +114,7 @@ function Train() {
             <p>
               {Math.round(
                 stripCharacter.attributes.dexterity **
-                  (stripCharacter.attributes.dexterity * 0.11) +
+                  (stripCharacter.attributes.dexterity * 0.12) +
                   stripCharacter.attributes.dexterity *
                     stripCharacter.attributes.dexterity
               )}
@@ -146,7 +146,7 @@ function Train() {
             <p>
               {Math.round(
                 stripCharacter.attributes.agility **
-                  (stripCharacter.attributes.agility * 0.11) +
+                  (stripCharacter.attributes.agility * 0.12) +
                   stripCharacter.attributes.agility *
                     stripCharacter.attributes.agility
               )}
@@ -178,7 +178,7 @@ function Train() {
             <p>
               {Math.round(
                 stripCharacter.attributes.constitution **
-                  (stripCharacter.attributes.constitution * 0.11) +
+                  (stripCharacter.attributes.constitution * 0.12) +
                   stripCharacter.attributes.constitution *
                     stripCharacter.attributes.constitution
               )}
