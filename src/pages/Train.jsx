@@ -88,12 +88,16 @@ function Train() {
               )}
             </p>
           </div>
-          <button
-            className="trainBtn"
-            onClick={() => upgradeAttribute("strength")}
-          >
-            Train
-          </button>
+          {loading === true ? (
+            <p>Learning...</p>
+          ) : (
+            <button
+              className="trainBtn"
+              onClick={() => upgradeAttribute("strength")}
+            >
+              Train
+            </button>
+          )}
         </div>
 
         <div className="stat">
@@ -116,12 +120,16 @@ function Train() {
               )}
             </p>
           </div>
-          <button
-            className="trainBtn"
-            onClick={() => upgradeAttribute("dexterity")}
-          >
-            Train
-          </button>
+          {loading === true ? (
+            <p>Learning...</p>
+          ) : (
+            <button
+              className="trainBtn"
+              onClick={() => upgradeAttribute("dexterity")}
+            >
+              Train
+            </button>
+          )}
         </div>
 
         <div className="stat">
@@ -144,12 +152,16 @@ function Train() {
               )}
             </p>
           </div>
-          <button
-            className="trainBtn"
-            onClick={() => upgradeAttribute("agility")}
-          >
-            Train
-          </button>
+          {loading === true ? (
+            <p>Learning...</p>
+          ) : (
+            <button
+              className="trainBtn"
+              onClick={() => upgradeAttribute("agility")}
+            >
+              Train
+            </button>
+          )}
         </div>
 
         <div className="stat">
@@ -172,12 +184,16 @@ function Train() {
               )}
             </p>
           </div>
-          <button
-            className="trainBtn"
-            onClick={() => upgradeAttribute("constitution")}
-          >
-            Train
-          </button>
+          {loading === true ? (
+            <p>Learning...</p>
+          ) : (
+            <button
+              className="trainBtn"
+              onClick={() => upgradeAttribute("constitution")}
+            >
+              Train
+            </button>
+          )}
         </div>
 
         <div className="stat">
