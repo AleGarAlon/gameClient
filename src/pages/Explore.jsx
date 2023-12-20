@@ -59,7 +59,7 @@ function Explore() {
               Armor:{" "}
               {Math.round(
                 user.character.attributes.armor *
-                  1.1 ** user.character.attributes.constitution
+                  1.05 ** user.character.attributes.constitution
               )}
             </h4>
             <h4>Strength: {user.character.attributes.strength}</h4>
@@ -84,7 +84,7 @@ function Explore() {
             <h4>
               Armor:{" "}
               {Math.round(
-                enemy.attributes.armor * 1.1 ** enemy.attributes.constitution
+                enemy.attributes.armor * 1.05 ** enemy.attributes.constitution
               )}
             </h4>
             <h4>Strength: {enemy.attributes.strength}</h4>

@@ -82,7 +82,7 @@ function Character() {
               Armor:{" "}
               {Math.round(
                 user.character.attributes.armor *
-                  1.1 ** user.character.attributes.constitution
+                  1.05 ** user.character.attributes.constitution
               )}
             </h4>
             <h4>Strength: {user.character.attributes.strength}</h4>
