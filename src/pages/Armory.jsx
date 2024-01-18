@@ -10,21 +10,20 @@ function Armory() {
   const { user, setUser } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   const [notGold, setNotGold] = useState("");
-
+  //ask the back for random items
   const getItems = async () => {
     try {
       setItems([]);
       const res = await axios.get(`${API_URL}/armory`);
       if (res.status === 200) {
         const data = res.data;
-        console.log("Your random items array", data);
         setItems(data);
       }
     } catch (error) {
       console.log(error);
     }
   };
-
+  //handle the buy action
   const handleBuy = async (itemId, itemPrice) => {
     setNotGold("");
     if (user.character.gold >= itemPrice) {
@@ -37,6 +36,8 @@ function Armory() {
       setNotGold("Not enough gold");
     }
   };
+
+  //handle the sell action
   const handleSell = async (itemId) => {
     const res = await axios.get(
       `${API_URL}/armory/sell?characterId=${user.character._id}&itemId=${itemId}`
@@ -45,6 +46,7 @@ function Armory() {
     setUser({ ...user, character: data });
   };
 
+  //handle the sell all action
   const handleSellAll = async () => {
     const res = await axios.get(
       `${API_URL}/armory/sellAll?characterId=${user.character._id}`

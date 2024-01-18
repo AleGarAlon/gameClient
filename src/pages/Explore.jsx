@@ -28,7 +28,6 @@ function Explore() {
     setCombat1(data.combat1);
     setCombat2(data.combat2);
     setVictory(data.victory);
-    console.log(data);
   };
 
   useEffect(() => {

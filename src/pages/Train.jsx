@@ -17,9 +17,7 @@ function Train() {
   const findCharacter = async () => {
     try {
       const res = await axios.get(`${API_URL}/character/${user.character._id}`);
-      console.log(res);
       const data = res.data;
-      console.log(data);
       setStripCharacter(data);
     } catch (error) {
       console.log(error);

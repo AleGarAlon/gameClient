@@ -17,6 +17,7 @@ function Character() {
     "weapon",
     "shield",
   ];
+  //handle the equip item action
 
   const handleEquip = async (itemId) => {
     try {
@@ -24,33 +25,32 @@ function Character() {
         `${API_URL}/equip?characterId=${user.character._id}&itemId=${itemId}`
       );
       const data = res.data;
-      console.log(data);
       setUser({ ...user, character: data });
     } catch (error) {
       console.log(error);
     }
   };
 
+  //handle the unequip item action
   const handleUnequip = async (itemId) => {
     try {
       const res = await axios.get(
         `${API_URL}/unequip?characterId=${user.character._id}&itemId=${itemId}`
       );
       const data = res.data;
-      console.log(data);
       setUser({ ...user, character: data });
     } catch (error) {
       console.log(error);
     }
   };
 
+  //handle the use consumable action
   const handleUseConsumable = async (consumableId) => {
     try {
       const res = await axios.get(
         `${API_URL}/useConsumable?characterId=${user.character._id}&consumableId=${consumableId}`
       );
       const data = res.data;
-      console.log(data);
       setUser({ ...user, character: data });
     } catch (error) {
       console.log(error);

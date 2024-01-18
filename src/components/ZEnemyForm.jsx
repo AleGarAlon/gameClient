@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config/config.index";
-
+//This is not in use. a alpha form to create an enemy in the app
 function CreateEnemy() {
   const [enemyData, setEnemyData] = useState({
     name: "",

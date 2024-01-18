@@ -6,17 +6,13 @@ import "./navbar.css";
 function Navbar() {
   const { user } = useContext(AuthContext);
   const [healthPercentage, setHealthPercentage] = useState("");
-  console.log("navbar Character", user.character);
   useEffect(() => {
     if (user.character.health) {
-      console.log(user.character.health);
       const health = user.character.health.toString();
       const percentage = health.slice(0, -1) + "." + health.slice(-1);
-      console.log("your percentage", percentage);
       setHealthPercentage(percentage);
     }
   }, [user.character]);
-  console.log("Your health perfcentaje is", healthPercentage);
 
   return user.character ? (
     <nav className="navBar">

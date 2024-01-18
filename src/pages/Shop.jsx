@@ -11,6 +11,7 @@ function Shop() {
   const [consumables, setConsumables] = useState([]);
   const [notGold, setNotGold] = useState("");
 
+  //get 4 random consumables from the black
   const getConsumables = async () => {
     setConsumables([]);
     const res = await axios.get(`${API_URL}/shop`);
@@ -19,6 +20,7 @@ function Shop() {
     setConsumables(data);
   };
 
+  //handle the buy action
   const handleBuy = async (consumableId, consumablePrice) => {
     setNotGold("");
     if (user.character.gold >= consumablePrice) {
@@ -31,9 +33,11 @@ function Shop() {
       setNotGold("Not enough gold");
     }
   };
+
+  //handle the buy x5 action
   const handleBuyX5 = async (consumableId, consumablePrice) => {
     setNotGold("");
-    if (user.character.gold >= consumablePrice) {
+    if (user.character.gold >= consumablePrice * 5) {
       const res = await axios.get(
         `${API_URL}/shop/buyX5?characterId=${user.character._id}&consumableId=${consumableId}`
       );
@@ -44,6 +48,7 @@ function Shop() {
     }
   };
 
+  //handle the sell action
   const handleSell = async (consumableId) => {
     const res = await axios.get(
       `${API_URL}/shop/sell?characterId=${user.character._id}&consumableId=${consumableId}`
