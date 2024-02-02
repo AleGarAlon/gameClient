@@ -52,11 +52,10 @@
 
 -The combat involves a comparison of the stats of the two combatants. Initially, the order of turns will be assigned randomly. The first attacker will be known as the "Attacker," and the second will be the "Defender."
 
--First, the Attacker's Agility is compared to the Defender's Dexterity, with the addition of a random number to maintain the thrill of the combat and give the underdog a chance for a lucky break. If the Attacker wins the roll, the hit lands on the Defender, and if the Defender wins, the hit misses, and the Defender's turn begins.
+-First, the Attacker's Agility is compared to the Defender's Dexterity in a calculattion that adds randomnes to the calculation in order to give the chance to win even if you are an underdog
 
--When the Attacker's hit lands, a random number is generated and compared with the Attacker's Fate. If the Fate roll is greater, the hit becomes a piercing strike and ignores the Defender's Constitution. If the Fate roll fails, it is a normal hit.
+-When the Attacker's hit lands,the damage from a normal hit is calculated based on the Attacker's weapon damage, their Strength, and subtracting the Defender's Constitution.
 
--The damage from a normal hit is calculated based on the Attacker's weapon damage, their Strength, and subtracting the Defender's Constitution.
 
 ## Pages
 
@@ -74,11 +73,11 @@
 
 ### Armory page
 
--Here you can sell items and buy armor pieces and weapons
+-Here you can sell and buy armor pieces and weapons
 
 ### Shop page
 
-Here you can sell items and buy consumables
+Here you can sell and buy consumables
 
 ### Circle (Not implemented yet)
 
@@ -90,22 +89,27 @@ Here you can sell items and buy consumables
 
 ## Features
 
--You can explore different locations with three different monsters in each location.
+-You can explore different locations with four different monsters in each location, 2 normal 1 chammpion 1 boss. Each zone has an full armor set, 2 weapons and a boss weapon.
 -You can level up your stats by paying with gold.
 -You can buy and sell equipment in the Armory.
 -You can buy and sell consumables in the Shop.
 
 ## Future features
 
+
+-Health regeneration sistem (Heal regeneration in time to prevent the game over if you have no food and no money)
+-Exploration points(The goal is to slow the pace of the game, making it slower to advance, you will have exploration point that will be recharge gradually, and you can spend those to explore a fight)
+-Power system (Your gear will give you an amount on power, the sum of all will be the character power. power will be use as a level to allow you buy/see specific items in the shop, go into higer lvl zones, determine who can you duel in the circle...) 
 -You can challenge other players to a duel.
 -A trade post to sell your gear to other players.
 -Dungeons (consecutive combats in a row, the farther you reach, the better the loot).
 -More locations.
 -More gear.
--Donation screen.
+-Donation screen (If someone enjoy the game and feel generous)
 -Player-to-player chat.
 -A way to enchant equipment.
 -Reagents and crafting potions.
+-Legacy Zone (Unlockable zones attained after meeting specific in-game achievements or milestones, providing players with new challenges and exclusive rewards).
 
 ## Technmologies used
 
