@@ -98,17 +98,29 @@ Here you can sell and buy consumables
 
 
 -Health regeneration sistem (Heal regeneration in time to prevent the game over if you have no food and no money)
+
 -Exploration points(The goal is to slow the pace of the game, making it slower to advance, you will have exploration point that will be recharge gradually, and you can spend those to explore a fight)
+
 -Power system (Your gear will give you an amount on power, the sum of all will be the character power. power will be use as a level to allow you buy/see specific items in the shop, go into higer lvl zones, determine who can you duel in the circle...) 
+
 -You can challenge other players to a duel.
+
 -A trade post to sell your gear to other players.
+
 -Dungeons (consecutive combats in a row, the farther you reach, the better the loot).
+
 -More locations.
+
 -More gear.
+
 -Donation screen (If someone enjoy the game and feel generous)
+
 -Player-to-player chat.
+
 -A way to enchant equipment.
+
 -Reagents and crafting potions.
+
 -Legacy Zone (Unlockable zones attained after meeting specific in-game achievements or milestones, providing players with new challenges and exclusive rewards).
 
 ## Technmologies used
