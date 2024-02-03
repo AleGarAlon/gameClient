@@ -7,7 +7,7 @@ import Character from "./pages/Character";
 import Map from "./pages/Map";
 import Navbar from "./components/Navbar";
 import StartPage from "./pages/Startpage";
-import CreateEnemy from "./components/EnemyForm";
+
 import Train from "./pages/Train";
 import Shop from "./pages/Shop";
 import Armory from "./pages/Armory";
@@ -30,7 +30,6 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="armory" element={<Armory />} />
         <Route path="/train" element={<Train />} />
-        <Route path="/create" element={<CreateEnemy />} />
       </Routes>
     </div>
   );
