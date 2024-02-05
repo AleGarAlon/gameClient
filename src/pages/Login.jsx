@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const { authenticateUser } = useContext(AuthContext);
   const nav = useNavigate();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,13 +24,18 @@ function Login() {
       await authenticateUser();
       nav("/character");
     } catch (error) {
-      console.log(error);
+      if (error.response.status === 403) {
+        setErrorMsg("Invalid User/Password");
+      } else {
+        setErrorMsg("Something goes wrong, try again plz");
+      }
     }
   };
 
   return (
     <div className="login">
       <h2>Login page</h2>
+      {errorMsg === "" ? <p></p> : <p className="errorMsg">{errorMsg}</p>}
       <form onSubmit={handleLogin}>
         <label className="loginLabel">
           Name

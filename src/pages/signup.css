@@ -35,3 +35,12 @@
     color: black;
     font-weight: bold;
 }
+.signupForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.errorMsg {
+    color: red;
+    font-weight: bold;
+}

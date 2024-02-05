@@ -3,10 +3,9 @@ import "./map.css";
 function Map() {
   return (
     <>
-      <h1>Map</h1>
-
       <div className="explore">
-        <Link to="/explore/woods">
+        <h1 className="mapTitle">Map</h1>
+        <Link className="zoneLinks" to="/explore/woods">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259179/game/map%20icons/prickly_root_t_wsnbhy.png"
@@ -14,7 +13,7 @@ function Map() {
           />
           <p className="zoneTitle">Wicked woods</p>
         </Link>
-        <Link to="/explore/grove">
+        <Link className="zoneLinks" to="/explore/grove">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259185/game/map%20icons/BlueLootBox_25_t_ywzd6l.png"
@@ -22,7 +21,7 @@ function Map() {
           />
           <p className="zoneTitle">Corrupted grove</p>
         </Link>
-        <Link to="/explore/spider">
+        <Link className="zoneLinks" to="/explore/spider">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259997/game/map%20icons/outgrowth_01_t_ybckqt.png"
@@ -30,7 +29,7 @@ function Map() {
           />
           <p className="zoneTitle">Spider caves</p>
         </Link>
-        <Link to="/explore/mine">
+        <Link className="zoneLinks" to="/explore/mine">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259230/game/map%20icons/artifact_14_t_xybinr.png"
@@ -38,7 +37,7 @@ function Map() {
           />
           <p className="zoneTitle">Dwarven mine</p>
         </Link>
-        <Link to="/explore/cove">
+        <Link className="zoneLinks" to="/explore/cove">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259317/game/map%20icons/shell_t_01_vbmndo.png"
@@ -46,7 +45,7 @@ function Map() {
           />
           <p className="zoneTitle">The cove</p>
         </Link>
-        <Link to="/explore/temple">
+        <Link className="zoneLinks" to="/explore/temple">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700259310/game/map%20icons/runestone_t_06_demjpo.png"
@@ -54,7 +53,7 @@ function Map() {
           />
           <p className="zoneTitle">Sunken temple</p>
         </Link>
-        <Link to="/explore/citadel">
+        <Link className="zoneLinks" to="/explore/citadel">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700260459/game/map%20icons/broken_sword_t_01_uknjau.png"
@@ -62,7 +61,7 @@ function Map() {
           />
           <p className="zoneTitle">Desolated citadel</p>
         </Link>
-        <Link to="/explore/catacombs">
+        <Link className="zoneLinks" to="/explore/catacombs">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1702335287/game/map%20icons/artifact_09_t_kt0niq.png"
@@ -70,7 +69,7 @@ function Map() {
           />
           <p className="zoneTitle">Catacombs</p>
         </Link>
-        <Link to="/explore/shrine">
+        <Link className="zoneLinks" to="/explore/shrine">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700260457/game/map%20icons/artifact_11_t_mfql2i.png"
@@ -78,7 +77,7 @@ function Map() {
           />
           <p className="zoneTitle">Forbiden shrine</p>
         </Link>
-        <Link to="/explore/rift">
+        <Link className="zoneLinks" to="/explore/rift">
           <img
             className="exploreImg"
             src="https://res.cloudinary.com/dvml0gelc/image/upload/v1700261102/game/map%20icons/orb_02_t_jttxhs.png"
