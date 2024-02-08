@@ -27,7 +27,7 @@ function Navbar() {
           Armory
         </Link>
         <Link className="navLinks linkTrain" to="/train">
-          Train
+          Training
         </Link>
         {/* <Link className= "navLinks linkPit" to="/pit">Pit</Link> */}
         {/* <Link className= "navLinks" to="/create">Create enemy form</Link> */}
@@ -43,14 +43,14 @@ function Navbar() {
           <div className="navResources">
             <img
               className="navImg"
-              src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699831092/game/UI%20elements/TradingIcons_111_t_l9eiky.png"
+              src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699917171/game/UI%20elements/TradingIcons_112_t_zfbxi0.png"
               alt="gold"
             />
             <p></p>
             <p className="navGold"> {user.character.gold}</p>
             <img
               className="navImg"
-              src="https://res.cloudinary.com/dvml0gelc/image/upload/v1699831090/game/UI%20elements/TradingIcons_52_t_dpc69e.png"
+              src="https://res.cloudinary.com/dvml0gelc/image/upload/v1707175426/game/UI%20elements/CasualUI_9_2_oqwc7y.png"
               alt="Power"
             />
             <p></p>

@@ -57,7 +57,7 @@ function Train() {
   }, [user]);
   return user.character && stripCharacter.attributes ? (
     <div className="train">
-      <h1 className="trainTitle">Train</h1>
+      <h1 className="trainTitle">Training</h1>
       <img
         className="trainImg"
         src="https://res.cloudinary.com/dvml0gelc/image/upload/v1695039428/game/character%20portraits/f_09_zvq81y.png"
