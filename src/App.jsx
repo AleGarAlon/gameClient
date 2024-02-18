@@ -11,6 +11,7 @@ import StartPage from "./pages/Startpage";
 import Train from "./pages/Train";
 import Shop from "./pages/Shop";
 import Armory from "./pages/Armory";
+import EnemySelect from "./pages/EnemySelect";
 
 function App() {
   const location = useLocation();
@@ -25,7 +26,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/character" element={<Character />} />
-        <Route path="/explore/:location" element={<Explore />} />
+        <Route path="/explore/zone/:location" element={<EnemySelect />} />
+        <Route path="/explore/:enemyId" element={<Explore />} />
         <Route path="/map" element={<Map />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="armory" element={<Armory />} />

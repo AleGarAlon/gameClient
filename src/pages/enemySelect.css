@@ -1,0 +1,27 @@
+.enemyCard {
+    display:flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+.enemyCardImg {
+    width: 4rem;
+}
+
+.locationTitle {
+    background-image: url('https://res.cloudinary.com/dvml0gelc/image/upload/v1699737871/game/UI%20elements/title_lbj4rd.png'); 
+    background-size: cover;
+    background-size: 100% 100%;
+    height: 5rem;
+    width: 20rem;
+    color: saddlebrown;
+}
+
+.selectEnemyScreen {
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}

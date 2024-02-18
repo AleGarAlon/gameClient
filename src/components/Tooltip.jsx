@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./tooltip.css";
 
 function Tooltip({
@@ -10,13 +10,27 @@ function Tooltip({
   buttonTextX5,
 }) {
   const [isVisible, setIsVisible] = useState(false);
+  const tooltipRef = useRef(null);
 
   const toggleTooltip = () => {
     setIsVisible(!isVisible);
   };
 
+  const handleClickOutside = (event) => {
+    if (tooltipRef.current && !tooltipRef.current.contains(event.target)) {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={tooltipRef}>
       <img
         className={className}
         src={item.image}
@@ -24,10 +38,7 @@ function Tooltip({
         onClick={toggleTooltip}
       />
 
-      <div
-        className={`tooltip ${isVisible ? "active" : ""}`}
-        onClick={toggleTooltip}
-      >
+      <div className={`tooltip ${isVisible ? "active" : ""}`}>
         <h4>{item.name}</h4>
         {item.damage && item.damage !== 0 ? (
           <p>Damage : {item.damage}</p>

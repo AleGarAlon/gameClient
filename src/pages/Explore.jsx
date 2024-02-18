@@ -10,16 +10,16 @@ function Explore() {
   const { user, setUser } = useContext(AuthContext);
   const [character, setCharacter] = useState("");
   const id = user.character._id;
-  const { location } = useParams();
+  const { enemyId } = useParams();
   const [combat1, setCombat1] = useState([]);
   const [combat2, setCombat2] = useState([]);
   const [victory, setVictory] = useState("");
   console.log(id);
-  console.log(location);
+  console.log(enemyId);
 
   const exploreCombat = async () => {
     const response = await axios.get(
-      `${API_URL}/explore/combat?id=${id}&location=${location}`
+      `${API_URL}/explore/combat?id=${id}&enemyId=${enemyId}`
     );
     const data = response.data;
     setUser({ ...user, character: data.character });
@@ -36,7 +36,7 @@ function Explore() {
 
   return enemy && character ? (
     <>
-      <h1>Battle in the {location}</h1>
+      <h1>Battle</h1>
 
       <div className="exploreCombatants">
         <div className="exploreCharacter">
@@ -47,20 +47,8 @@ function Explore() {
             alt={`${character.name} image`}
           />
           <div className="characterStats">
-            <h4>
-              Damage:{" "}
-              {Math.round(
-                user.character.damage *
-                  1.1 ** user.character.attributes.strength
-              )}
-            </h4>
-            <h4>
-              Armor:{" "}
-              {Math.round(
-                user.character.attributes.armor *
-                  1.05 ** user.character.attributes.constitution
-              )}
-            </h4>
+            <h4>Damage: {user.character.damage}</h4>
+            <h4>Armor: {user.character.attributes.armor}</h4>
             <h4>Strength: {user.character.attributes.strength}</h4>
             <h4>Dexterity: {user.character.attributes.dexterity}</h4>
             <h4>Agility: {user.character.attributes.agility}</h4>
@@ -76,16 +64,8 @@ function Explore() {
             alt={`${enemy.name} image`}
           />
           <div className="enemyStats">
-            <h4>
-              Damage:{" "}
-              {Math.round(enemy.damage * 1.1 ** enemy.attributes.strength)}
-            </h4>
-            <h4>
-              Armor:{" "}
-              {Math.round(
-                enemy.attributes.armor * 1.05 ** enemy.attributes.constitution
-              )}
-            </h4>
+            <h4>Damage: {enemy.damage}</h4>
+            <h4>Armor: {enemy.attributes.armor}</h4>
             <h4>Strength: {enemy.attributes.strength}</h4>
             <h4>Dexterity: {enemy.attributes.dexterity}</h4>
             <h4>Agility: {enemy.attributes.agility}</h4>
