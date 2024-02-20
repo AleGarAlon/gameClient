@@ -61,6 +61,17 @@ function Tooltip({
           <p></p>
         )}
 
+        {item.power ? (
+          <ul>
+            {Object.entries(item.power).map(
+              ([power, value]) =>
+                value !== 0 && <li key={power}>Power: {value}</li>
+            )}
+          </ul>
+        ) : (
+          <p></p>
+        )}
+
         {item.effect && item.effect === "heal" ? (
           <p>Recover {item.amount} points of health</p>
         ) : item.effect ? (

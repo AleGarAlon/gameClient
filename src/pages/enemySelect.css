@@ -23,5 +23,9 @@
 display: flex;
 flex-direction: column;
 align-items: center;
+}
 
+.enemyPower {
+    display:flex;
+    align-items: center;
 }

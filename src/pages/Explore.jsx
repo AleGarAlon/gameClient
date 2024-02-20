@@ -77,6 +77,7 @@ function Explore() {
       <h3>Combat results</h3>
       <h3>{victory}</h3>
 
+      <button className="combatLogBtn">Combat log</button>
       <div className="combatLog">
         <div className="exploreAttacker">
           {combat1.map((combatLog, index) => {
